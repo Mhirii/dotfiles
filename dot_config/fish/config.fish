@@ -45,7 +45,7 @@ set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -x BROWSER firefox
 set -x FILEMANAGER thunar
 set -x EDITOR nvim
-set -x TERMINAL alacritty
+set -x TERMINAL wezterm
 set -x VISUAL neovide
 
 
@@ -122,18 +122,6 @@ function backup --argument filename
     cp $filename $filename.bak
 end
 
-# ━━ Copy DIR1 DIR2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-function copy
-    set count (count $argv | tr -d \n)
-    if test "$count" = 2; and test -d "$argv[1]"
-        set from (echo $argv[1] | string trim --right --chars=/)
-        set to (echo $argv[2])
-        command cp -r $from $to
-    else
-        command cp $argv
-    end
-end
-
 # ━━ Cleanup local orphaned packages ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function cleanup
     while pacman -Qdtq
@@ -161,6 +149,15 @@ end
 function Update
     sudo pacman -Sy && sudo powerpill -Su && paru -Su $argv
 
+end
+
+function zoxide_find
+    zi
+    starship prompt
+end
+
+function gui_explore
+    $FILEMANAGER .
 end
 
 
@@ -217,7 +214,6 @@ alias big 'expac -H M "%m\t%n" | sort -h | nl' # Sort installed packages accordi
 alias dir 'dir --color=auto'
 alias fixpacman 'sudo rm /var/lib/pacman/db.lck'
 alias gitpkg 'pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
-alias grep 'ugrep --color=auto'
 alias egrep 'ugrep -E --color=auto'
 alias fgrep 'ugrep -F --color=auto'
 alias grubup 'sudo update-grub'
@@ -228,7 +224,6 @@ alias psmem10 'ps auxf | sort -nr -k 4 | head -10'
 alias rmpkg 'sudo pacman -Rdd'
 alias tarnow 'tar -acf '
 alias untar 'tar -zxvf '
-alias upd /usr/bin/garuda-update
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
 
@@ -250,21 +245,31 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 #          │                         keybinds                         │
 #          ╰──────────────────────────────────────────────────────────╯
 
-# Alt-F
-function zoxide_find
-    zi
-    starship prompt
-end
 bind \ef zoxide_find
-
-# Alt-V
 bind \ev nvim
-
-# Alt-E
-function gui_explore
-    $FILEMANAGER .
-end
 bind \ee gui_explore
+bind \eg lazygit
+
+bind right forward-char
+bind left backward-char
+
+# hjkl
+bind \ch backward-char
+bind \cj down-or-search
+bind \ck up-or-search
+bind \cl forward-char
+
+bind \cx delete-char
+bind \cb backward-word
+bind \cw forward-word
+
+bind \ca beginning-of-line
+bind \ce end-of-line
+bind \cp up-or-search
+bind \cn down-or-search
+
+bind \cz undo
+
 
 
 #          ╭──────────────────────────────────────────────────────────╮
