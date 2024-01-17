@@ -203,13 +203,24 @@ if not test -x /usr/bin/yay; and test -x /usr/bin/paru
     alias yay paru
 end
 
-alias lg lazygit
-alias v nvim
-alias t tmux
-alias tks 'tmux kill-session'
-alias tls 'tmux list-sessions'
-alias tcs 'tmux list-clients'
-alias tns 'tmux new -s'
+if test -x /usr/bin/lazygit
+    alias lg lazygit
+end
+if test -x /usr/bin/nvim
+    alias v nvim
+end
+if test -x /usr/bin/wezterm
+    alias wz wezterm
+end
+
+if test -x /usr/bin/tmux
+    alias t tmux
+    alias tks 'tmux kill-session'
+    alias tls 'tmux list-sessions'
+    alias tcs 'tmux list-clients'
+    alias tns 'tmux new -s'
+end
+
 alias rat bat
 alias cm chezmoi
 alias code 'code --password-store="gnome"'
