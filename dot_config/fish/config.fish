@@ -160,6 +160,19 @@ function gui_explore
     $FILEMANAGER .
 end
 
+function switch_mode
+    if [ "$fish_key_bindings" = fish_vi_key_bindings ]
+        fish_default_key_bindings
+        set mode Default
+    else
+        fish_vi_key_bindings
+        set mode Vim
+    end
+
+    echo "$mode Keybinds set"
+    starship prompt
+end
+
 
 #          ╭──────────────────────────────────────────────────────────╮
 #          │                         aliases                          │
@@ -202,6 +215,7 @@ alias cm chezmoi
 alias code 'code --password-store="gnome"'
 alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
+alias outdated 'paru -Qu| wc -l'
 
 
 # ━━ Common use ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -211,12 +225,10 @@ alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
 alias ...... 'cd ../../../../..'
 alias big 'expac -H M "%m\t%n" | sort -h | nl' # Sort installed packages according to size in MB (expac must be installed)
-alias dir 'dir --color=auto'
 alias fixpacman 'sudo rm /var/lib/pacman/db.lck'
 alias gitpkg 'pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 alias egrep 'ugrep -E --color=auto'
 alias fgrep 'ugrep -F --color=auto'
-alias grubup 'sudo update-grub'
 alias hw 'hwinfo --short' # Hardware Info
 alias ip 'ip -color'
 alias psmem 'ps auxf | sort -nr -k 4'
@@ -224,14 +236,9 @@ alias psmem10 'ps auxf | sort -nr -k 4 | head -10'
 alias rmpkg 'sudo pacman -Rdd'
 alias tarnow 'tar -acf '
 alias untar 'tar -zxvf '
-alias vdir 'vdir --color=auto'
-alias wget 'wget -c '
 
 # ━━ Get fastest mirrors ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 alias mirror 'sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
-alias mirrora 'sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'
-alias mirrord 'sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
-alias mirrors 'sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
 
 # ━━ Get the error messages from journalctl ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 alias jctl 'journalctl -p 3 -xb'
@@ -245,30 +252,65 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 #          │                         keybinds                         │
 #          ╰──────────────────────────────────────────────────────────╯
 
-bind \ef zoxide_find
-bind \ev nvim
-bind \ee gui_explore
-bind \eg lazygit
-
-bind right forward-char
-bind left backward-char
-
-# hjkl
-bind \ch backward-char
-bind \cj down-or-search
-bind \ck up-or-search
-bind \cl forward-char
-
-bind \cx delete-char
-bind \cb backward-word
-bind \cw forward-word
-
-bind \ca beginning-of-line
-bind \ce end-of-line
-bind \cp up-or-search
-bind \cn down-or-search
-
 bind \cz undo
+
+if [ "$fish_key_bindings" = fish_vi_key_bindings ]
+    bind -Minsert ! __history_previous_command
+    bind -Minsert '$' __history_previous_command_arguments
+
+    bind \ef zoxide_find
+    bind \ev nvim
+    bind \ee gui_explore
+    bind \eg lazygit
+
+    bind right forward-char
+    bind left backward-char
+
+    # hjkl
+    bind -Minsert \ch backward-char
+    bind -Minsert \cj down-or-search
+    bind -Minsert \ck up-or-search
+    bind -Minsert \cl forward-char
+
+    bind -Minsert \cx delete-char
+    bind -Minsert \cb backward-word
+    bind -Minsert \cw forward-word
+
+    bind -Minsert \ca beginning-of-line
+    bind -Minsert \ce end-of-line
+    bind -Minsert \cp up-or-search
+    bind -Minsert \cn down-or-search
+
+    bind \e\e switch_mode
+else
+    bind ! __history_previous_command
+    bind '$' __history_previous_command_arguments
+
+    bind \ef zoxide_find
+    bind \ev nvim
+    bind \ee gui_explore
+    bind \eg lazygit
+
+    bind right forward-char
+    bind left backward-char
+
+    # hjkl
+    bind \ch backward-char
+    bind \cj down-or-search
+    bind \ck up-or-search
+    bind \cl forward-char
+
+    bind \cx delete-char
+    bind \cb backward-word
+    bind \cw forward-word
+
+    bind \ca beginning-of-line
+    bind \ce end-of-line
+    bind \cp up-or-search
+    bind \cn down-or-search
+
+    bind \e\e switch_mode
+end
 
 
 
@@ -286,3 +328,5 @@ if status --is-interactive
         neofetch --ascii_colors 1 1 2 2 2 2
     end
 end
+
+fish_vi_key_bindings
