@@ -1,147 +1,96 @@
-## FIRST LINE/ROW: Info & Status
-# First param ─┌
-[username]
-format = " [╭─$user]($style)@"
-show_always = true
-style_root = "bold red"
-style_user = "bold red"
 
-# Second param
-[hostname]
-disabled = false
-format = "[$hostname]($style) in "
-ssh_only = false
-style = "bold dimmed red"
-trim_at = "-"
+palette = "tokyonight"
 
-# Third param
-[directory]
-style = "purple"
-truncate_to_repo = true
-truncation_length = 0
-truncation_symbol = "repo: "
-
-# Fourth param
-[sudo]
-disabled = false
-
-# Before all the version info (python, nodejs, php, etc.)
-[git_status]
-ahead = "⇡${count}"
-behind = "⇣${count}"
-deleted = "x"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-style = "white"
-
-# Last param in the first line/row
-[cmd_duration]
-disabled = false
-format = "took [$duration]($style)"
-min_time = 1
+# Setups
+right_format = "$cmd_duration"
+# format = """$directory$git_branch$git_status\n$character"""
+format = """$directory$git_branch\n$character"""
+add_newline = false
+command_timeout = 1000
 
 
-## SECOND LINE/ROW: Prompt
-# Somethere at the beginning
-[battery]
-charging_symbol = ""
-disabled = true
-discharging_symbol = ""
-full_symbol = ""
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+ruby.disabled = true
+package.disabled = true
+lua.disabled = true
 
-[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
-disabled = false
-style = "bold red"
-threshold = 15
 
-[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
-disabled = true
-style = "bold yellow"
-threshold = 50
-
-[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
-disabled = true
-style = "bold green"
-threshold = 80
-
-# Prompt: optional param 1
-[time]
-disabled = true
-format = " 🕙 $time($style)\n"
-style = "bright-white"
-time_format = "%T"
-
-# Prompt: param 2
 [character]
-error_symbol = " [×](bold red)"
-success_symbol = " [╰─λ](bold red)"
+success_symbol = "[](blue bold)"
+error_symbol = "[](red)"
+# vicmd_symbol = "[](green)"
 
-# SYMBOLS
-[status]
-disabled = false
-format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
-map_symbol = true
-pipestatus = true
-symbol = "🔴"
 
-[aws]
-symbol = " "
+[directory]
+style = "bold fg:black bg:none"
+format = "[]($style)[ ](bg:black fg:cyan)[ $path](bg:black fg:blue bold)[ ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"repos" = " "
 
 [git_branch]
-symbol = " "
+style = "bg:none fg:black"
+format = "[]($style)[[  ](bg:black fg:green bold)$branch ](bg:black fg:blue)[ ]($style)"
+# symbol = ""
+# format = '[[ $symbol $branch ](fg:#a9b1d6 bg:#414868)]($style)'
 
-[golang]
-symbol = " "
+[git_status]
+style = "bg:none fg:black"
+format = "[]($style)[ $all_status$ahead_behind](bg:black fg:yellow)[ ]($style)"
+conflicted = "="
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
+untracked = "?${count} "
+stashed = " "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "${count} "
 
-[hg_branch]
-symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
+[cmd_duration]
+min_time = 1
+# duration & style 
+format = "[]($style)[[ ](bg:black fg:yellow bold)$duration](bg:black fg:white)[ ]($style)"
+disabled = false
+style = "bg:none fg:black"
 
 [nodejs]
-symbol = " "
-
-[package]
-symbol = " "
-
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[python]
-symbol = " "
-
-[ruby]
-symbol = " "
+symbol = ""
+style = "bg:#24283b"
+format = '[[ $symbol ($version) ](fg:green bg:#24283b)]($style)'
 
 [rust]
-symbol = " "
+symbol = ""
+style = "bg:#24283b"
+format = '[[ $symbol ($version) ](fg:yellow bg:#24283b)]($style)'
 
-[swift]
-symbol = "ﯣ "
+[golang]
+symbol = ""
+style = "bg:#24283b"
+format = '[[ $symbol ($version) ](fg:blue bg:#24283b)]($style)'
+
+[time]
+disabled = true
+time_format = "%R"                                      # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[palettes.tokyonight]
+black = "#2e3c64"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+purple = "#bb9af7"
+cyan = "#7dcfff"
+white = "#a9b1d6"
