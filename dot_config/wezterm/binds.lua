@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local M = {}
 
-M.leader = { key = "Space", mods = "SHIFT", timeout_milliseconds = 1000 }
+M.leader = { key = "a", mods = "ALT", timeout_milliseconds = 1000 }
 M.keys = {
 
 	-- ── Defaults ─────────────────────────────────{
@@ -18,6 +18,7 @@ M.keys = {
 	-- ── Copy Paste ───────────────────────────────{
 	{ key = "F", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
+	{ key = "s", mods = "SHIFT|CTRL|ALT", action = act.QuickSelect },
 	{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
 	{ key = "V", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
 	{ key = "Insert", mods = "SHIFT", action = act.PasteFrom("PrimarySelection") },
@@ -26,10 +27,17 @@ M.keys = {
 	-- }
 
 	-- ── Scroll ───────────────────────────────────{
-	{ key = "d", mods = "SHIFT|CTRL", action = act.ScrollByPage(-1) },
-	{ key = "u", mods = "SHIFT|CTRL", action = act.ScrollByPage(1) },
+	{ key = "k", mods = "SHIFT|CTRL", action = act.ScrollByLine(-1) },
+	{ key = "j", mods = "SHIFT|CTRL", action = act.ScrollByLine(1) },
+	{ key = "UpArrow", mods = "SHIFT", action = act.ScrollByLine(-1) },
+	{ key = "DownArrow", mods = "SHIFT", action = act.ScrollByLine(1) },
+	{ key = "u", mods = "SHIFT|CTRL", action = act.ScrollByPage(-1) },
+	{ key = "d", mods = "SHIFT|CTRL", action = act.ScrollByPage(1) },
 	{ key = "PageUp", mods = "SHIFT", action = act.ScrollByPage(-1) },
 	{ key = "PageDown", mods = "SHIFT", action = act.ScrollByPage(1) },
+	{ key = "}", mods = "SHIFT|CTRL", action = act.ScrollToPrompt(1) }, -- FIXME: Does not work
+	{ key = "{", mods = "SHIFT|CTRL", action = act.ScrollToPrompt(-1) }, -- FIXME: Does not work
+
 	-- }
 
 	-- ── Tabs ─────────────────────────────────────{
@@ -37,10 +45,16 @@ M.keys = {
 	{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "W", mods = "SHIFT|CTRL", action = act.CloseCurrentTab({ confirm = true }) },
 	{ key = "x", mods = "LEADER", action = act.CloseCurrentTab({ confirm = true }) },
-	{ key = "L", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(1) },
 	{ key = "H", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
-	{ key = "{", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
-	{ key = "}", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(1) },
+	{ key = "PageUp", mods = "CTRL", action = act.ActivateTabRelative(-1) },
+	{ key = "L", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(1) },
+	{ key = "PageDown", mods = "CTRL", action = act.ActivateTabRelative(1) },
+	{ key = "H", mods = "SHIFT|CTRL|ALT", action = act.MoveTabRelative(-1) },
+	{ key = "PageUp", mods = "SHIFT|CTRL", action = act.MoveTabRelative(-1) },
+	{ key = "{", mods = "SHIFT|CTRL|ALT", action = act.MoveTabRelative(-1) },
+	{ key = "L", mods = "SHIFT|CTRL|ALT", action = act.MoveTabRelative(1) },
+	{ key = "PageDown", mods = "SHIFT|CTRL", action = act.MoveTabRelative(1) },
+	{ key = "}", mods = "SHIFT|CTRL|ALT", action = act.MoveTabRelative(1) },
 	{ key = "1", mods = "ALT", action = act.ActivateTab(0) },
 	{ key = "2", mods = "ALT", action = act.ActivateTab(1) },
 	{ key = "3", mods = "ALT", action = act.ActivateTab(2) },
@@ -50,10 +64,6 @@ M.keys = {
 	{ key = "7", mods = "ALT", action = act.ActivateTab(6) },
 	{ key = "8", mods = "ALT", action = act.ActivateTab(7) },
 	{ key = "9", mods = "ALT", action = act.ActivateTab(-1) },
-	{ key = "PageUp", mods = "CTRL", action = act.ActivateTabRelative(-1) },
-	{ key = "PageDown", mods = "CTRL", action = act.ActivateTabRelative(1) },
-	{ key = "PageUp", mods = "SHIFT|CTRL", action = act.MoveTabRelative(-1) },
-	{ key = "PageDown", mods = "SHIFT|CTRL", action = act.MoveTabRelative(1) },
 	--}
 
 	-- ── Panes ────────────────────────────────────{
@@ -80,9 +90,10 @@ M.keys = {
 	-- ── misc ─────────────────────────────────────{
 	{
 		key = "u",
-		mods = "SHIFT|CTRL|ALT",
+		mods = "LEADER",
 		action = act.CharSelect({ copy_on_select = true, copy_to = "ClipboardAndPrimarySelection" }),
 	},
+	{ key = "r", mods = "LEADER", action = wezterm.action.ShowLauncher },
 	-- }
 }
 
