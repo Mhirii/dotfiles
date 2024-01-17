@@ -18,6 +18,8 @@ M.keys = {
 	-- ── Copy Paste ───────────────────────────────{
 	{ key = "F", mods = "SHIFT|CTRL", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "X", mods = "CTRL", action = act.ActivateCopyMode },
+	{ key = "v", mods = "LEADER", action = act.ActivateCopyMode },
+	{ key = "s", mods = "LEADER", action = act.QuickSelect },
 	{ key = "s", mods = "SHIFT|CTRL|ALT", action = act.QuickSelect },
 	{ key = "c", mods = "SHIFT|CTRL", action = act.CopyTo("Clipboard") },
 	{ key = "V", mods = "SHIFT|CTRL", action = act.PasteFrom("Clipboard") },
