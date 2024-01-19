@@ -1,0 +1,6 @@
+dot_config/fish/conf.d
+dot_config/fish/functions
+dot_config/fish/themes
+dot_config/fish/env.fish
+dot_config/fish/fish_plugins
+dot_config/fish/fish_variables

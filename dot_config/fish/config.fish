@@ -209,6 +209,9 @@ end
 if test -x /usr/bin/nvim
     alias v nvim
 end
+if test -x $HOME/.local/bin/lvim
+    alias lv lvim
+end
 if test -x /usr/bin/wezterm
     alias wz wezterm
 end
@@ -269,10 +272,10 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
     bind -Minsert ! __history_previous_command
     bind -Minsert '$' __history_previous_command_arguments
 
-    bind \ef zoxide_find
-    bind \ev nvim
-    bind \ee gui_explore
-    bind \eg lazygit
+    bind -Minsert \ef zoxide_find
+    bind -Minsert \ev nvim
+    bind -Minsert \ee gui_explore
+    bind -Minsert \eg lazygit
 
     bind right forward-char
     bind left backward-char
