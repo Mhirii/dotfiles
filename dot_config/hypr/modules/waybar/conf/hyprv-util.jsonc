@@ -1,0 +1,18 @@
+{
+    "custom/myhyprv": {
+        //shows the current power profile and switches to next on click
+        "exec": "~/.config/hypr/ricectl/rice_util",
+        "return-type" : "json",
+        "interval": 30,
+        "format": "{}",
+        "on-click": "~/.config/hypr/ricectl/rice_util vswitch",
+        "tooltip": true
+    },
+
+    "custom/light_dark": {
+        "format": "󰐾",
+        "on-click": "~/.config/hypr/ricectl/waybar/scripts/baraction light",
+        "tooltip": false
+    }
+
+}

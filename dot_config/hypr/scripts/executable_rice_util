@@ -1,0 +1,59 @@
+#!/bin/bash
+
+get_ver() {
+	VER=$(readlink -f ~/.config/waybar/config.jsonc | cut -d '-' -f1 | cut -d '/' -f9)
+}
+
+restart_waybar() {
+	#restart the waybar
+	pkill waybar
+	waybar &
+	get_ver
+}
+
+switch_version() {
+	get_ver
+	case $VER in
+	v1)
+		#we are on v1 so switch to v2
+		VERTO="v2-"
+		notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "switching to HyprV2"
+		;;
+
+	v2)
+		#we are on v2 so switch to v3
+		VERTO="v3-"
+		notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "switching to HyprV3"
+		;;
+
+	v3)
+		#we are on v3 so switch to v4
+		VERTO="v4-"
+		notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "switching to HyprV4"
+		;;
+
+	v4)
+		#we are on v4 so switch to v5
+		VERTO="v1-"
+		notify-send -h string:x-canonical-private-synchronous:sys-notify -u low "switching to HyprV1"
+		;;
+
+	esac
+	#set the waybar config
+	ln -sf ~/.config/hypr/modules/waybar/conf/$VERTO'config.jsonc' ~/.config/waybar/config.jsonc
+	#set the waybar theme
+	ln -sf ~/.config/hypr/modules/waybar/style/$VERTO'style'.css ~/.config/waybar/style.css
+
+	#update the sddm image
+	# cp -f ~/.config/hypr/ricectl/backgrounds/$VERTO'background'$SWITCHTO.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+
+}
+
+if [[ "$1" == "vswitch" ]]; then
+	switch_version
+	restart_waybar
+fi
+
+# need to show the version and tooltip
+get_ver
+echo '{"text": "'$VER'"}'

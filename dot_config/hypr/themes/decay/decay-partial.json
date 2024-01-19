@@ -1,0 +1,77 @@
+{
+  "Background3": "#0a0c0f",
+
+  "Background2": "#0d1014",
+
+  "Background": "#101419",
+
+  "Foreground3": "#8c929c",
+
+  "Foreground2": "#a1a8b3",
+
+  "Foreground": "#b6beca",
+
+  "Black2": "#0f1317",
+
+  "Black": "#1c252c",
+
+  "BrightBlack2": "#30373d",
+
+  "BrightBlack": "#384148",
+
+  "Red2": "#cc575c",
+
+  "Red": "#e05f65",
+
+  "BrightRed2": "#e87177",
+
+  "BrightRed": "#e5646a",
+
+  "Green2": "#6dc799",
+
+  "Green": "#78dba9",
+
+  "BrightGreen2": "#88e3b5",
+
+  "BrightGren": "#94F7C5",
+
+  "Yellow2": "#debf7f",
+
+  "Yellow": "#f1cf8a",
+
+  "BrightYellow2": "#ebd899",
+
+  "BrightYellow": "#f6d48f",
+
+  "Blue2": "#6696d6",
+
+  "Blue": "#70a5eb",
+
+  "BrightBlue2": "#81b2eb",
+
+  "BrightBlue": "#75aaf0",
+
+  "Magenta2": "#b47ed9",
+
+  "Magenta": "#c68aee",
+
+  "BrightMagenta2": "#d099eb",
+
+  "BrightMagenta": "#cb8ff3",
+
+  "Cyan2": "#69add4",
+
+  "Cyan": "#74bee9",
+
+  "BrightCyan2": "#84c9eb",
+
+  "BrightCyan": "#79c3ee",
+
+  "White2": "#cacdd1",
+
+  "White": "#dee1e6",
+
+  "BrightWhite2": "#e6e9eb",
+
+  "BrightWhite": "#e3e6eb"
+}

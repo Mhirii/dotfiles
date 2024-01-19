@@ -1,0 +1,11 @@
+{
+    "custom/power_profile": {
+    //shows the current power profile and switches to next on click
+    "exec": "~/.config/hypr/ricectl/waybar/scripts/power_profile",
+    "return-type": "json",
+    "interval": 20,
+    "format": "{}",
+    "on-click": "~/.config/hypr/ricectl/waybar/scripts/power_profile next",
+    "signal": 8
+    }
+}
