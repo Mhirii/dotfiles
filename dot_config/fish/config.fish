@@ -176,7 +176,17 @@ function switch_mode
 end
 
 function edit_config
-  cm edit $XDG_CONFIG_HOME/$argv[1]
+  set input $argv[1]
+  set target $XDG_CONFIG_HOME/$argv[1]
+  if test -f $target
+    cm edit $target
+  else if test -d $target
+    cd $XDG_DATA_HOME/chezmoi/dot_config/$input
+    neovide . &
+  else
+    echo "$target is not a valid directory."
+  end
+
 end
 
 #          ╭──────────────────────────────────────────────────────────╮
