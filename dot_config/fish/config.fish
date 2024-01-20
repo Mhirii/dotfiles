@@ -48,7 +48,6 @@ set -x EDITOR nvim
 set -x TERMINAL wezterm
 set -x VISUAL neovide
 
-
 # ━━ other env variables ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 source ~/.config/fish/env.fish
 
@@ -176,6 +175,9 @@ function switch_mode
     starship prompt
 end
 
+function edit_config
+  echo $argv[1]
+end
 
 #          ╭──────────────────────────────────────────────────────────╮
 #          │                         aliases                          │
