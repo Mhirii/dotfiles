@@ -305,14 +305,19 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
     bind -Minsert \ee gui_explore
     bind -Minsert \eg lazygit
 
+    bind  \ef zoxide_find
+    bind  \ev nvim
+    bind  \ee gui_explore
+    bind  \eg lazygit
+
     bind right forward-char
     bind left backward-char
 
     # hjkl
-    bind -Minsert \ch backward-char
-    bind -Minsert \cj down-or-search
-    bind -Minsert \ck up-or-search
-    bind -Minsert \cl forward-char
+    bind -Minsert \cH backward-char
+    bind -Minsert \cJ down-or-search
+    bind -Minsert \cK up-or-search
+    bind -Minsert \cL forward-char
 
     bind -Minsert \cx delete-char
     bind -Minsert \cb backward-word
