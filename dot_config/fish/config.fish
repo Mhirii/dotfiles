@@ -177,6 +177,10 @@ end
 
 function edit_config
   set input $argv[1]
+  if $argv[1] == ""
+    cd $XDG_DATA_HOME/chezmoi/
+    fzf
+  end
   set target $XDG_CONFIG_HOME/$argv[1]
   if test -f $target
     cm edit $target
