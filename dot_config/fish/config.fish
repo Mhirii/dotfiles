@@ -286,6 +286,11 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 bind \cz undo
 
 if [ "$fish_key_bindings" = fish_vi_key_bindings ]
+
+    bind \eC edit_config
+    bind -Minsert \eC edit_config
+    bind -Minsert \cz undo
+    bind \cz undo
     bind -Minsert ! __history_previous_command
     bind -Minsert '$' __history_previous_command_arguments
 
