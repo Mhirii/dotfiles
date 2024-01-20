@@ -314,10 +314,10 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
     bind left backward-char
 
     # hjkl
-    bind -Minsert \cH backward-char
-    bind -Minsert \cJ down-or-search
-    bind -Minsert \cK up-or-search
-    bind -Minsert \cL forward-char
+    bind -Minsert \e\ch backward-char
+    bind -Minsert \e\cj down-or-search
+    bind -Minsert \e\ck up-or-search
+    bind -Minsert \e\cl forward-char
 
     bind -Minsert \cx delete-char
     bind -Minsert \cb backward-word
