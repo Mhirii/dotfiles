@@ -59,6 +59,9 @@ switch $arg
     case rofi
         rofi -show drun
 
+    case launcher
+        ags -t applauncher
+
     case terminal
         wezterm
     case terminal1
