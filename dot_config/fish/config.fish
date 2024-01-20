@@ -177,7 +177,7 @@ end
 
 function edit_config
   set input $argv[1]
-  if test $argv[1] == ""
+  if not test $argv[1]
     cd $XDG_DATA_HOME/chezmoi/
     fzf
   end
