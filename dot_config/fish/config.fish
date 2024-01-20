@@ -176,7 +176,7 @@ function switch_mode
 end
 
 function edit_config
-  echo $argv[1]
+  cm edit $XDG_CONFIG_HOME/$argv[1]
 end
 
 #          ╭──────────────────────────────────────────────────────────╮
