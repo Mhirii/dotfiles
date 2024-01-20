@@ -287,7 +287,7 @@ bind \cz undo
 
 if [ "$fish_key_bindings" = fish_vi_key_bindings ]
 
-    bind \eC edit_config
+    bind \eC edit_config fish
     bind -Minsert \eC edit_config
     bind -Minsert \cz undo
     bind \cz undo
