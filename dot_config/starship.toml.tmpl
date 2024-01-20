@@ -1,0 +1,141 @@
+
+palette = "tokyonight"
+
+# Setups
+right_format = "$cmd_duration"
+format = """$directory$git_branch$nodejs$rust$golang$lua\n$character"""
+add_newline = false
+command_timeout = {{ .chezmoi.gid }}
+
+
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+ruby.disabled = true
+package.disabled = true
+
+
+[character]
+success_symbol = "[](blue bold)"
+error_symbol = "[](red)"
+vicmd_symbol = "[](green)"
+vimcmd_replace_one_symbol =  "[](red)"
+vimcmd_replace_symbol =  "[](red)"
+vimcmd_visual_symbol=  "[](purple)"
+
+
+{{- if eq .chezmoi.hostname "Desktop" }}
+[directory]
+style = " fg:blue bg:none"
+format = "[]($style)[ ](bg:blue fg:black)[](fg:blue bg:black)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+truncation_length = 9
+truncation_symbol = ""
+truncate_to_repo = true
+{{- end }}
+
+{{- if eq .chezmoi.hostname "Laptop" }}
+[directory]
+style = " fg:blue bg:none"
+format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:black)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+truncation_length = 9
+truncation_symbol = ""
+truncate_to_repo = true
+
+
+[battery]
+charging_symbol = ""
+disabled = true
+discharging_symbol = ""
+full_symbol = ""
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+disabled = false
+style = "bold red"
+threshold = 15
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+disabled = true
+style = "bold yellow"
+threshold = 50
+
+[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
+disabled = true
+style = "bold green"
+threshold = 80
+{{- end }}
+
+
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+".config"=" "
+"repos" = " "
+"projects" = "󱒔 "
+"scripts"=" "
+"uni"=" "
+"code"="󱃖 "
+
+[{{ .chezmoi.config.git.command }}_branch]
+style = "bg:none fg:black"
+format = "[](fg:green)[[ ](bg:green fg:black bold)[](fg:green bg:black) $branch](bg:black fg:green)[ ]($style)"
+
+[{{ .chezmoi.config.git.command }}_status]
+style = "bg{{ .chezmoi.pathListSeparator }}none fg{{ .chezmoi.pathListSeparator }}black"
+format = "[]($style)[ $all_status$ahead_behind](bg{{ .chezmoi.pathListSeparator }}black fg{{ .chezmoi.pathListSeparator }}yellow)[ ]($style)"
+conflicted = "="
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
+untracked = "?${count} "
+stashed = " "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "${count} "
+
+[cmd_duration]
+min_time = 1
+# duration & style 
+format = "[]($style)[[ ](bg{{ .chezmoi.pathListSeparator }}black fg{{ .chezmoi.pathListSeparator }}yellow bold)$duration](bg{{ .chezmoi.pathListSeparator }}black fg{{ .chezmoi.pathListSeparator }}white)[ ]($style)"
+disabled = false
+style = "bg{{ .chezmoi.pathListSeparator }}none fg{{ .chezmoi.pathListSeparator }}black"
+
+[nodejs]
+symbol = " "
+style = "bg:black fg:green"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:green)[ ](fg:black)"
+
+[rust]
+symbol = " "
+style = "bg:black fg:yellow"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:yellow)[ ](fg:black)"
+
+[golang]
+symbol = " "
+style = "bg:black fg:cyan"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:cyan)[ ](fg:black)"
+
+[lua]
+symbol = "󰢱 "
+style = "bg:black fg:blue"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:blue)[ ](fg:black)"
+
+[time]
+disabled = true
+time_format = "%R"                                      # Hour{{ .chezmoi.pathListSeparator }}Minute Format
+style = "bg{{ .chezmoi.pathListSeparator }}#1d2230"
+format = '[[  $time ](fg{{ .chezmoi.pathListSeparator }}#a0a9cb bg{{ .chezmoi.pathListSeparator }}#1d2230)]($style)'
+
+[palettes.tokyonight]
+black = "#23283A"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+purple = "#bb9af7"
+cyan = "#7dcfff"
+white = "#a9b1d6"

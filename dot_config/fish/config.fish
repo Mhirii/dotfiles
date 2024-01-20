@@ -224,6 +224,8 @@ if test -x /usr/bin/tmux
     alias tns 'tmux new -s'
 end
 
+alias cmtest "chezmoi git pull -- --autostash --rebase && chezmoi diff"
+
 alias rat bat
 alias cm chezmoi
 alias code 'code --password-store="gnome"'

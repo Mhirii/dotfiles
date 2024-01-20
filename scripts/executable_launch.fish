@@ -74,7 +74,7 @@ switch $arg
         end
 
     case tmux
-        alacritty -T tmux -e tmux &
+        alacritty -T tmux -e tmux a &
 
     case nvim
         $terminal --hold -e nvim &
