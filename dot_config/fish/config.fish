@@ -380,4 +380,5 @@ if status --is-interactive
     end
 end
 
+source ~/.config/fish/current_theme.fish
 fish_vi_key_bindings
