@@ -72,6 +72,10 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
+# Turso
+
+set TURSO "/home/mhiri/.turso"
+fish_add_path -U $TURSO
 set -gx BUN_INSTALL "$HOME/.bun"
 fish_add_path -U $BUN_INSTALL/bin
 
