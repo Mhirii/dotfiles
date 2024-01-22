@@ -40,6 +40,7 @@ set -x CARGO_HOME $XDG_DATA_HOME/cargo
 set -x CUDA_CACHE_PATH $XDG_CACHE_HOME/nv
 set -x GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc
 set -x RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -x GOPATH $XDG_DATA_HOME/go
 
 # ━━ Default Apps ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 set -x BROWSER firefox
@@ -180,22 +181,22 @@ function switch_mode
 end
 
 function edit_config
-  set input $argv[1]
-  if not test $argv[1]
-    cd $XDG_DATA_HOME/chezmoi/
-    set choice (fzf)
-    neovide $choice
-  else
-    set target $XDG_CONFIG_HOME/$argv[1]
-    if test -f $target
-      cm edit $target
-    else if test -d $target
-      cd $XDG_DATA_HOME/chezmoi/dot_config/$input
-      neovide . &
+    set input $argv[1]
+    if not test $argv[1]
+        cd $XDG_DATA_HOME/chezmoi/
+        set choice (fzf)
+        neovide $choice
     else
-      echo "$target is not a valid directory."
+        set target $XDG_CONFIG_HOME/$argv[1]
+        if test -f $target
+            cm edit $target
+        else if test -d $target
+            cd $XDG_DATA_HOME/chezmoi/dot_config/$input
+            neovide . &
+        else
+            echo "$target is not a valid directory."
+        end
     end
-  end
 
 end
 
@@ -309,10 +310,10 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
     bind -Minsert \ee gui_explore
     bind -Minsert \eg lazygit
 
-    bind  \ef zoxide_find
-    bind  \ev nvim
-    bind  \ee gui_explore
-    bind  \eg lazygit
+    bind \ef zoxide_find
+    bind \ev nvim
+    bind \ee gui_explore
+    bind \eg lazygit
 
     bind right forward-char
     bind left backward-char
