@@ -119,4 +119,6 @@ switch $arg
         hyprctl keyword general:col.active_border "rgba(bada55ff) rgba(1a1b26ff)"
     case hypr_reset
         hyprctl reload
+    case hypr_windowmode
+        hyprctl keyword general:col.active_border "rgba(E05F65ff) rgba(1a1b26ff)"
 end
