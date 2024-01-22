@@ -1,0 +1,2 @@
+hyprshot
+hyprpicker-git
