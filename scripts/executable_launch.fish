@@ -114,4 +114,9 @@ switch $arg
 
     case insomnia
         run_electron insomnia &
+
+    case hypr_launch
+        hyprctl keyword general:col.active_border "rgba(bada55ff) rgba(1a1b26ff)"
+    case hypr_reset
+        hyprctl reload
 end
