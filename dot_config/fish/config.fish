@@ -84,6 +84,7 @@ fish_add_path -U $BUN_INSTALL/bin
 fish_add_path -U $GOPATH
 fish_add_path -U $GOBIN
 
+set cf $XDG_CONFIG_HOME
 set cm_conf $XDG_CONFIG_HOME/chezmoi/chezmoi.toml
 set cm_data $XDG_DATA_HOME/chezmoi
 
