@@ -256,6 +256,7 @@ alias cmtest "chezmoi git pull -- --autostash --rebase && chezmoi diff"
 
 alias rat bat
 alias cm chezmoi
+alias cme "chezmoi edit"
 alias code 'code --password-store="gnome"'
 alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
