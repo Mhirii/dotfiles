@@ -48,7 +48,7 @@ set -x BROWSER firefox
 set -x FILEMANAGER thunar
 set -x EDITOR nvim
 set -x TERMINAL wezterm
-set -x VISUAL neovide
+set -x VISUAL nvim
 
 # ━━ other env variables ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 source ~/.config/fish/env.fish
