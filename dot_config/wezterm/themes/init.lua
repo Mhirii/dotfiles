@@ -1,3 +1,4 @@
 return {
-	["tokyoNight"] = require("themes/tokyonight"),
+  ["tokyoNight"] = require("themes/tokyonight"),
+  ["rosepine"] = require("themes/rosepine"),
 }
