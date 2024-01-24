@@ -56,6 +56,8 @@ bash-completion
 bat
 bc
 beautyline
+bemenu
+bemenu-wayland
 bind
 binutils
 bison
@@ -94,6 +96,7 @@ cairo
 cairomm
 candy-icons-git
 cantarell-fonts
+cargo-spellcheck
 catimg
 cava
 cdparanoia
@@ -217,11 +220,12 @@ file
 file-roller
 filesystem
 filezilla
-find-the-command-git
 findutils
 firefox
 firefox-developer-edition
 firefox-developer-edition-i18n-ar
+firefox-tridactyl
+firefox-tridactyl-native
 fish
 fish-autopair
 fisher
@@ -256,27 +260,20 @@ fzf
 galculator
 game-devices-udev
 garuda-assistant
-garuda-bash-config
 garuda-boot-options
-garuda-common-settings
 garuda-dracut-support
-garuda-fish-config
 garuda-gamer
 garuda-hooks
 garuda-hotfixes
 garuda-icons
 garuda-libs
-garuda-migrations
 garuda-network-assistant
 garuda-settings-manager
 garuda-setup-assistant
-garuda-starship-prompt
 garuda-system-maintenance
 garuda-update
 garuda-video-linux-config
-garuda-wallpapers
 garuda-welcome
-garuda-zsh-config
 gawk
 gc
 gcab
@@ -775,7 +772,6 @@ libfprint
 libfreeaptx
 libfreehand
 libftdi
-libgbinder
 libgcrypt
 libgcrypt15
 libgdm
@@ -783,7 +779,6 @@ libgee
 libgexiv2
 libgirepository
 libgit2
-libglibutil
 libglvnd
 libgme
 libgnomekbd
@@ -805,6 +800,7 @@ libidn
 libidn11
 libidn2
 libiec61883
+libieee1284
 libimagequant
 libimobiledevice
 libindicator-gtk2
@@ -956,6 +952,7 @@ libunistring
 libunwind
 libupnp
 liburcu
+liburing
 libusb
 libusb-compat
 libusbmuxd
@@ -1062,7 +1059,6 @@ lutris-git
 lv2
 lvm2
 lxappearance
-lxc
 lxrandr
 lxtask-gtk3
 lz4
@@ -1076,9 +1072,9 @@ make
 mako
 man-db
 man-pages
+maven
 mbedtls
 mbedtls2
-mcfly
 md4c
 mdadm
 media-player-info
@@ -1094,7 +1090,7 @@ meson
 mhwd-amdgpu
 mhwd-ati
 mhwd-db-garuda
-mhwd-garuda-git
+mhwd-garuda
 mhwd-nvidia
 mhwd-nvidia-390xx
 mhwd-nvidia-470xx
@@ -1133,6 +1129,7 @@ neovide
 neovim
 nerd-fonts-jetbrains-mono-160
 nerdctl
+net-snmp
 net-tools
 nethack
 netpbm
@@ -1152,6 +1149,7 @@ nfsidmap
 nftables
 ngrok
 nilfs-utils
+nim
 ninja
 nlohmann-json
 nm-cloud-setup
@@ -1281,7 +1279,6 @@ pipewire-zeroconf
 pixman
 pkcs11-helper
 pkgconf
-pkgfile
 planify
 plasma-framework5
 plasma5-themes-sweet-full-git
@@ -1293,6 +1290,7 @@ pocketbase-bin
 polkit
 polkit-gnome
 polkit-qt5
+pomo
 poppler
 poppler-data
 poppler-glib
@@ -1345,7 +1343,6 @@ python-defusedxml
 python-distro
 python-dotenv
 python-fastjsonschema
-python-gbinder
 python-geoip
 python-gobject
 python-html2text
@@ -1356,7 +1353,6 @@ python-ifaddr
 python-importlib-metadata
 python-incremental
 python-inflect
-python-inquirerpy
 python-installer
 python-jaraco.classes
 python-jaraco.context
@@ -1380,7 +1376,6 @@ python-mypy_extensions
 python-ordered-set
 python-packaging
 python-pendulum
-python-pfzy
 python-pgspecial
 python-pillow
 python-pip
@@ -1509,6 +1504,8 @@ rubberband
 runc
 rust-analyzer
 rustup
+samba
+sane
 sassc
 sbc
 sdbus-cpp
@@ -1590,7 +1587,6 @@ swww
 sxcs
 systemd
 systemd-libs
-systemd-oomd-defaults
 systemd-sysvcompat
 taglib
 talloc
@@ -1690,8 +1686,6 @@ w3m
 watchman-bin
 wavpack
 waybar
-waydroid-git
-waydroid-script-git
 wayland
 wayland-protocols-git
 wdisplays
@@ -1710,7 +1704,7 @@ whois
 wiki-tui
 wildmidi
 wimlib
-wine-wl-git
+wine-wow64-git
 winetricks-git
 wireguard-tools
 wireless-regdb
@@ -1814,12 +1808,6 @@ zip
 zix
 zlib
 zoxide
-zram-generator
-zsh
-zsh-autosuggestions
-zsh-completions
-zsh-history-substring-search
-zsh-syntax-highlighting
 zstd
 zvbi
 zxing-cpp
