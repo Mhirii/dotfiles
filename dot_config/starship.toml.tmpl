@@ -30,7 +30,7 @@ style = " fg:blue bg:none"
 format = "[]($style)[ ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
 truncation_length = 9
 truncation_symbol = ""
-truncate_to_repo = true
+truncate_to_repo = false
 {{- end }}
 
 {{- if eq .chezmoi.hostname "Laptop" }}
@@ -39,7 +39,7 @@ style = " fg:blue bg:none"
 format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
 truncation_length = 9
 truncation_symbol = ""
-truncate_to_repo = true
+truncate_to_repo = false
 
 
 [battery]
