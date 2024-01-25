@@ -40,8 +40,8 @@ TERM = "xterm-256color"
 
 [font]
 normal = { family = "MonaspiceNe Nerd Font" }
-bold = { family = "FiraCode Nerd Font" }
-size = 14
+bold = { family = "MonaspiceNe Nerd Font" }
+size = 11
 
 [[keyboard.bindings]]
 action = "Paste"
