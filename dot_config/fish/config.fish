@@ -262,7 +262,7 @@ alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
 alias outdated 'paru -Qu| wc -l'
 
-alias vivaldi "/uar/bin/vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --use-cmd-decoder=validating --use-gl=desktop"
+alias vivaldi "/usr/bin/vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --use-cmd-decoder=validating --use-gl=desktop"
 
 
 # ━━ Common use ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
