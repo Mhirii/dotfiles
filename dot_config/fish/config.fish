@@ -44,7 +44,7 @@ set -x GOPATH $XDG_DATA_HOME/go
 set -x GOBIN $GOPATH/bin
 
 # ━━ Default Apps ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-set -x BROWSER firefox
+set -x BROWSER vivaldi
 set -x FILEMANAGER thunar
 set -x EDITOR nvim
 set -x TERMINAL wezterm
@@ -261,6 +261,8 @@ alias c '/usr/bin/code --password-store="gnome"'
 alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
 alias outdated 'paru -Qu| wc -l'
+
+alias vivaldi "vivaldi -enable-features=UseOzonePlatform --ozone-platform=wayland --use-cmd-decoder=validating --use-gl=desktop"
 
 
 # ━━ Common use ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
