@@ -257,7 +257,7 @@ alias cmtest "chezmoi git pull -- --autostash --rebase && chezmoi diff"
 alias rat bat
 alias cm chezmoi
 alias cme "chezmoi edit"
-alias code 'code --password-store="gnome"'
+alias c '/usr/bin/code --password-store="gnome"'
 alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
 alias outdated 'paru -Qu| wc -l'
