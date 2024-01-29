@@ -109,4 +109,4 @@ instance = "Alacritty"
 columns = 100
 lines = 30
 
-import = ["~/.config/alacritty/themes/themes/rosepine.toml"]
+import = ["~/.config/alacritty/themes/rosepine.toml"]
