@@ -51,6 +51,8 @@ window {
     width:                       600px;
     x-offset:                    0px;
     y-offset:                    0px;
+    border:                      0px solid;
+    border-radius:               4px;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -69,7 +71,7 @@ mainbox {
     spacing:                     10px;
     margin:                      0px;
     padding:                     16px;
-    border:                      0px solid;
+    border:                      1px solid;
     border-radius:               4px;
     border-color:                @border-colour;
     background-color:            transparent;
@@ -123,7 +125,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     0px;
     margin:                      0px;
     padding:                     0px;
@@ -155,7 +157,7 @@ element {
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            var(normal-background);
+    background-color:            @transparent;
     text-color:                  var(normal-foreground);
 }
 element normal.urgent {
@@ -179,7 +181,7 @@ element selected.active {
     text-color:                  var(selected-active-foreground);
 }
 element alternate.normal {
-    background-color:            var(alternate-normal-background);
+    background-color:            @transparent;
     text-color:                  var(alternate-normal-foreground);
 }
 element alternate.urgent {
