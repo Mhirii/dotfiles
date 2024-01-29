@@ -39,8 +39,8 @@ unfocused_hollow = true
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "MonaspiceNe Nerd Font" , style = "Medium"}
-bold = { family = "MonaspiceNe Nerd Font", style="Bold" }
+normal = { family = "MonaspiceNe Nerd Font", style = "Medium" }
+bold = { family = "MonaspiceNe Nerd Font", style = "Bold" }
 size = 11
 
 [[keyboard.bindings]]
@@ -108,3 +108,5 @@ instance = "Alacritty"
 [window.dimensions]
 columns = 100
 lines = 30
+
+import = ["~/.config/alacritty/themes/themes/rosepine.toml"]
