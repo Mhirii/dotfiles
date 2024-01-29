@@ -39,7 +39,7 @@ unfocused_hollow = true
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "MonaspiceNe Nerd Font" }
+normal = { family = "MonaspiceNe Nerd Font Medium" }
 bold = { family = "MonaspiceNe Nerd Font" }
 size = 11
 
