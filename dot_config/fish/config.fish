@@ -252,12 +252,13 @@ if test -x /usr/bin/tmux
     alias tns 'tmux new -s'
 end
 
-alias cmtest "chezmoi git pull -- --autostash --rebase && chezmoi diff"
 
 alias rat bat
 alias cm chezmoi
 alias cme "chezmoi edit"
+alias cmtest "chezmoi git pull -- --autostash --rebase && chezmoi diff"
 alias c '/usr/bin/code --password-store="gnome"'
+alias ppc powerprofilesctl
 alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
 alias outdated 'paru -Qu| wc -l'
