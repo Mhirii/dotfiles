@@ -7,30 +7,6 @@ save_to_clipboard = true
 [colors]
 draw_bold_text_with_bright_colors = true
 
-[colors.primary]
-background = "#1a1b26"
-foreground = "#b6beca"
-
-[colors.bright]
-black = "#384148"
-blue = "#8cc1ff"
-cyan = "#90daff"
-green = "#94f7c5"
-magenta = "#e2a6ff"
-red = "#fc7b81"
-white = "#fafdff"
-yellow = "#ffeba6"
-
-
-[colors.normal]
-black = "#1c252c"
-blue = "#70a5eb"
-cyan = "#74bee9"
-green = "#78dba9"
-magenta = "#c68aee"
-red = "#e05f65"
-white = "#dee1e6"
-yellow = "#f1cf8a"
 
 [cursor]
 style = { shape = "Underline", blinking = "On" }
