@@ -40,7 +40,7 @@ TERM = "xterm-256color"
 
 [font]
 normal = { family = "MonaspiceNe Nerd Font" , style = "Medium"}
-bold = { family = "MonaspiceNe Nerd Font" }
+bold = { family = "MonaspiceNe Nerd Font", style="Bold" }
 size = 11
 
 [[keyboard.bindings]]
