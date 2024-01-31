@@ -263,6 +263,8 @@ alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
 alias outdated 'paru -Qu| wc -l'
 
+alias todo "todoist-cli --color --namespace --indent"
+
 alias vivaldi "/usr/bin/vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --use-cmd-decoder=validating --use-gl=desktop"
 
 
