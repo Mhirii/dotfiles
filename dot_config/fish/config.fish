@@ -252,6 +252,7 @@ if test -x /usr/bin/tmux
     alias tns 'tmux new -s'
 end
 
+alias getip 'curl https://ipinfo.io/ip'
 
 alias rat bat
 alias cm chezmoi
