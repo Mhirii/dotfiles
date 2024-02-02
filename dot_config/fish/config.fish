@@ -316,12 +316,12 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
 
     bind -Minsert \ef zoxide_find
     bind -Minsert \ev nvim
-    bind -Minsert \e\cv lvim
+    bind -Minsert \eV lvim
     bind -Minsert \ee gui_explore
     bind -Minsert \eg lazygit
 
     bind \ef zoxide_find
-    bind \e\cv lvim
+    bind \eV lvim
     bind \ee gui_explore
     bind \eg lazygit
 
