@@ -268,6 +268,10 @@ alias todo "todoist-cli --color --namespace --indent"
 
 alias vivaldi "/usr/bin/vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland --use-cmd-decoder=validating --use-gl=desktop"
 
+if test -f $HOME/scripts/launch.fish
+    alias launch 'fish $HOME/scripts/launch.fish'
+end
+
 
 # ━━ Common use ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 alias .. 'cd ..'
