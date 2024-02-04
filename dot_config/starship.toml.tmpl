@@ -24,24 +24,31 @@ vimcmd_replace_symbol =  "[](red)"
 vimcmd_visual_symbol=  "[](purple)"
 
 
-{{- if eq .chezmoi.hostname "Desktop" }}
 [directory]
+{{- if eq .theme "tokyonight" }}
+  style = " fg:red bg:none"
+  {{- if eq .chezmoi.hostname "Desktop" }}
+  format = "[]($style)[ ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
+  {{- end }}
+  {{- if eq .chezmoi.hostname "Laptop" }}
+  format = "[]($style)[󰌢 ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
+  {{- end }}
+{{- end }}
+{{- if eq .theme "rosepine" }}
 style = " fg:blue bg:none"
+{{- if eq .chezmoi.hostname "Desktop" }}
 format = "[]($style)[ ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+{{- end }}
+{{- if eq .chezmoi.hostname "Laptop" }}
+format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+{{- end }}
+{{- end }}
 truncation_length = 9
 truncation_symbol = ""
 truncate_to_repo = false
-{{- end }}
+
 
 {{- if eq .chezmoi.hostname "Laptop" }}
-[directory]
-style = " fg:blue bg:none"
-format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
-truncation_length = 9
-truncation_symbol = ""
-truncate_to_repo = false
-
-
 [battery]
 charging_symbol = ""
 disabled = true
@@ -99,7 +106,7 @@ deleted = "${count} "
 
 [cmd_duration]
 min_time = 1
-# duration & style 
+# duration & style
 format = "[]($style)[[ ](bg{{ .chezmoi.pathListSeparator }}black fg{{ .chezmoi.pathListSeparator }}yellow bold)$duration](bg{{ .chezmoi.pathListSeparator }}black fg{{ .chezmoi.pathListSeparator }}white)[ ]($style)"
 disabled = false
 style = "bg{{ .chezmoi.pathListSeparator }}none fg{{ .chezmoi.pathListSeparator }}black"
