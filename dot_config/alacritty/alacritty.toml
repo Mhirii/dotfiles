@@ -1,5 +1,5 @@
 live_config_reload = true
-import = ["~/.config/alacritty/themes/rosepine.toml"]
+import = ["~/.config/alacritty/themes/tokyonight.toml"]
 
 [selection]
 save_to_clipboard = true
