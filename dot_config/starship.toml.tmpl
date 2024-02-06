@@ -87,7 +87,12 @@ threshold = 80
 
 [{{ .chezmoi.config.git.command }}_branch]
 style = "bg:none fg:black"
+{{- if eq .theme "tokyonight" }}
+format = "[](fg:purple)[[ ](bg:purple fg:black bold)[](fg:purple bg:black) $branch](bg:black fg:purple)[ ]($style)"
+{{- end }}
+{{- if eq .theme "rosepine" }}
 format = "[](fg:green)[[ ](bg:green fg:black bold)[](fg:green bg:black) $branch](bg:black fg:green)[ ]($style)"
+{{- end }}
 
 [{{ .chezmoi.config.git.command }}_status]
 style = "bg{{ .chezmoi.pathListSeparator }}none fg{{ .chezmoi.pathListSeparator }}black"
