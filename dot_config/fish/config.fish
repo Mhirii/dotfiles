@@ -165,6 +165,12 @@ function zoxide_find
     starship prompt
 end
 
+function tmux_fzf
+    Zi
+    starship prompt
+    tmux new -s (basename (pwd))
+end
+
 function gui_explore
     $FILEMANAGER .
 end
@@ -319,14 +325,14 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
     bind -Minsert '$' __history_previous_command_arguments
 
     bind -Minsert \ef zoxide_find
-    bind -Minsert \ev nvim
-    bind -Minsert \eV lvim
-    bind -Minsert \ee gui_explore
-    bind -Minsert \eg lazygit
-
     bind \ef zoxide_find
+    bind -Minsert \ev nvim
+    bind \ev nvim
+    bind -Minsert \eV lvim
     bind \eV lvim
+    bind -Minsert \ee gui_explore
     bind \ee gui_explore
+    bind -Minsert \eg lazygit
     bind \eg lazygit
 
     bind right forward-char
