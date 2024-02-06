@@ -326,6 +326,8 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
 
     bind -Minsert \ef zoxide_find
     bind \ef zoxide_find
+    bind -Minsert \et tmux_fzf
+    bind \ef tmux_fzf
     bind -Minsert \ev nvim
     bind \ev nvim
     bind -Minsert \eV lvim
