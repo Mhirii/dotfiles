@@ -166,7 +166,7 @@ function zoxide_find
 end
 
 function tmux_fzf
-    Zi
+    zi
     starship prompt
     tmux new -s (basename (pwd))
 end
