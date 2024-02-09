@@ -4,4 +4,5 @@ dot_config/fish/env.fish
 dot_config/fish/fish_plugins
 dot_config/fish/fish_variables
 dot_config/hypr/dot_git
+dot_config/bpytop/error.log
 scripts/dot_git
