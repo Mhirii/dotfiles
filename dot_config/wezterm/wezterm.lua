@@ -40,6 +40,5 @@ table.insert(config.hyperlink_rules, {
 
 config.check_for_updates = false
 config.check_for_updates_interval_seconds = 86400
-config.show_update_window = false
 
 return config
