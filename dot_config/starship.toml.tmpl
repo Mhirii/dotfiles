@@ -28,20 +28,29 @@ vimcmd_visual_symbol=  "[](purple)"
 {{- if eq .theme "tokyonight" }}
   style = " fg:red bg:none"
   {{- if eq .chezmoi.hostname "Desktop" }}
-  format = "[]($style)[ ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
+    format = "[]($style)[ ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
   {{- end }}
   {{- if eq .chezmoi.hostname "Laptop" }}
-  format = "[]($style)[󰌢 ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
+    format = "[]($style)[󰌢 ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
   {{- end }}
 {{- end }}
 {{- if eq .theme "rosepine" }}
-style = " fg:blue bg:none"
-{{- if eq .chezmoi.hostname "Desktop" }}
-format = "[]($style)[ ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+  style = " fg:blue bg:none"
+  {{- if eq .chezmoi.hostname "Desktop" }}
+    format = "[]($style)[ ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+  {{- end }}
+  {{- if eq .chezmoi.hostname "Laptop" }}
+    format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+  {{- end }}
 {{- end }}
-{{- if eq .chezmoi.hostname "Laptop" }}
-format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
-{{- end }}
+{{- if eq .theme "nero" }}
+  style = " fg:blue bg:none"
+  {{- if eq .chezmoi.hostname "Desktop" }}
+    format = "[]($style)[ ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+  {{- end }}
+  {{- if eq .chezmoi.hostname "Laptop" }}
+    format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+  {{- end }}
 {{- end }}
 truncation_length = 9
 truncation_symbol = ""
@@ -161,3 +170,13 @@ blue = "#31748f"
 purple = "#c4a7e7"
 cyan = "#9ccfd8"
 white = "#908caa"
+
+[palettes.nero]
+black = "#0d1c2e"
+red = "#f5596b"
+green = "#92cc33"
+yellow = "#c8e155"
+blue = "#0da8f2"
+purple = "#b291f3"
+cyan = "#3df5de"
+white = "#a9c7d6"

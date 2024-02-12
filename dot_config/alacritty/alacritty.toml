@@ -1,5 +1,5 @@
 live_config_reload = true
-import = ["~/.config/alacritty/themes/{{- .theme }}.toml"]
+import = ["~/.config/alacritty/current_theme.toml"]
 
 [selection]
 save_to_clipboard = true
