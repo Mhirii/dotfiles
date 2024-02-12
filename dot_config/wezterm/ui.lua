@@ -20,7 +20,7 @@ M.font = wezterm.font({
 })
 M.font_size = 11
 
-M.window_background_opacity = 0.9
+M.window_background_opacity = 0.5
 M.color_schemes = require("themes")
-M.color_scheme = "{{- .theme }}"
+M.color_scheme = "nero"
 return M
