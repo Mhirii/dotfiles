@@ -52,6 +52,15 @@ vimcmd_visual_symbol=  "[](purple)"
     format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
   {{- end }}
 {{- end }}
+{{- if eq .theme "idx" }}
+  style = " fg:purple bg:none"
+  {{- if eq .chezmoi.hostname "Desktop" }}
+    format = "[]($style)[ ](bg:purple fg:black)[](fg:purple bg:purple)[ $path](bg:black fg:purple bold)[ ](fg:black)"
+  {{- end }}
+  {{- if eq .chezmoi.hostname "Laptop" }}
+    format = "[]($style)[󰌢 ](bg:purple fg:black)[](fg:purple bg:purple)[ $path](bg:black fg:purple bold)[ ](fg:black)"
+  {{- end }}
+{{- end }}
 truncation_length = 9
 truncation_symbol = ""
 truncate_to_repo = false
@@ -183,3 +192,13 @@ blue = "#0da8f2"
 purple = "#b291f3"
 cyan = "#3df5de"
 white = "#a9c7d6"
+
+[palettes.idx]
+black = "#171f2b"
+red = "#FD8DA3"
+green = "#77D5A3"
+yellow = "#FFD395"
+blue = "#92A9FF"
+purple = "#a87ffb"
+cyan = "#85CDF1"
+white = "#d9dfe7"
