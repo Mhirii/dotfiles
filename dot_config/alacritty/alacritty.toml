@@ -75,7 +75,7 @@ decorations = "full"
 decorations_theme_variant = "Dark"
 dynamic_padding = true
 dynamic_title = true
-opacity = 0.2
+opacity = 0.8
 title = "Alacritty"
 
 [window.class]

@@ -133,7 +133,7 @@ thefuck --alias | source
 if status --is-interactive
     source ("/usr/bin/starship" init fish --print-full-init | psub)
     if test -x /usr/bin/neofetch
-        neofetch --ascii_colors 1 1 2 2 2 2
+        neofetch --ascii_colors 6 6 2 2 2 2
     end
 end
 
