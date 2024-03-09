@@ -1,0 +1,158 @@
+
+palette = "nero"
+
+# Setups
+right_format = "$cmd_duration"
+format = """$directory$git_branch$nodejs$rust$golang$lua\n$character"""
+add_newline = true
+command_timeout = 1000
+
+
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+ruby.disabled = true
+package.disabled = true
+
+
+[character]
+success_symbol = "[](blue bold)"
+error_symbol = "[](red)"
+vicmd_symbol = "[](green)"
+vimcmd_replace_one_symbol =  "[](red)"
+vimcmd_replace_symbol =  "[](red)"
+vimcmd_visual_symbol=  "[](purple)"
+
+
+[directory]
+  style = " fg:blue bg:none"
+    format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
+truncation_length = 9
+truncation_symbol = ""
+truncate_to_repo = false
+[battery]
+charging_symbol = ""
+disabled = true
+discharging_symbol = ""
+full_symbol = ""
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+disabled = false
+style = "bold red"
+threshold = 15
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+disabled = true
+style = "bold yellow"
+threshold = 50
+
+[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
+disabled = true
+style = "bold green"
+threshold = 80
+
+
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+".config"=" "
+"repos" = " "
+"projects" = "󱒔 "
+"scripts"=" "
+"uni"=" "
+"code"="󱃖 "
+
+[git_branch]
+style = "bg:none fg:black"
+format = "[](fg:yellow)[[ ](bg:yellow fg:black bold)[](fg:yellow bg:black) $branch](bg:black fg:yellow)[ ]($style)"
+
+[git_status]
+style = "bg:none fg:black"
+format = "[]($style)[ $all_status$ahead_behind](bg:black fg:yellow)[ ]($style)"
+conflicted = "="
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = ""
+untracked = "?${count} "
+stashed = " "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "${count} "
+
+[cmd_duration]
+min_time = 1
+# duration & style
+format = "[]($style)[[ ](bg:black fg:yellow bold)$duration](bg:black fg:white)[ ]($style)"
+disabled = false
+style = "bg:none fg:black"
+
+[nodejs]
+symbol = " "
+style = "bg:black fg:green"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:green)[ ](fg:black)"
+
+[rust]
+symbol = " "
+style = "bg:black fg:yellow"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:yellow)[ ](fg:black)"
+
+[golang]
+symbol = " "
+style = "bg:black fg:cyan"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:cyan)[ ](fg:black)"
+
+[lua]
+symbol = "󰢱 "
+style = "bg:black fg:blue"
+format = "[](fg:black)[[$symbol]($style)$version](bg:black fg:blue)[ ](fg:black)"
+
+[time]
+disabled = true
+time_format = "%R"                                      # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[palettes.tokyonight]
+black = "#23283A"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+purple = "#bb9af7"
+cyan = "#7dcfff"
+white = "#a9b1d6"
+
+[palettes.rosepine]
+black = "#191724"
+red = "#eb6f92"
+green = "#568f60"
+yellow = "#ebbcba"
+blue = "#31748f"
+purple = "#c4a7e7"
+cyan = "#9ccfd8"
+white = "#908caa"
+
+[palettes.nero]
+black = "#0d1c2e"
+red = "#f5596b"
+green = "#92cc33"
+yellow = "#c8e155"
+blue = "#0da8f2"
+purple = "#b291f3"
+cyan = "#3df5de"
+white = "#a9c7d6"
+
+[palettes.idx]
+black = "#171f2b"
+red = "#FD8DA3"
+green = "#77D5A3"
+yellow = "#FFD395"
+blue = "#92A9FF"
+purple = "#a87ffb"
+cyan = "#85CDF1"
+white = "#d9dfe7"
