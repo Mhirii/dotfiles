@@ -20,9 +20,13 @@ swww init
 swww img --transition-type grow ~/.config/hypr/background.png
 echo_color "Wallpaper set!" "green"
 
-echo_color "Setting up widgets..." "cyan"
-ags -t bar &
-echo_color "Widgets set!" "green"
+# echo_color "Setting up widgets..." "cyan"
+# ags -t bar &
+# echo_color "Widgets set!" "green"
+
+echo_color "Setting up waybar..." "cyan"
+waybar &
+echo_color "waybar set!" "green"
 
 echo_color "Initializing tmux..." "cyan"
 tmux new -s init &
@@ -33,10 +37,6 @@ echo_color "Starting up clickup..." "blue"
 clickup &
 echo_color "done!" "green"
 
-# echo_color "Starting up discord..." "blue"
-# discord &
-# echo_color "done!" "green"
-
 hyprctl dispatch exec [workspace 1 silent] alacritty
 hyprctl dispatch exec [workspace special silent] "alacritty -e ~/scripts/tmuxMain.sh"
 hyprctl dispatch exec [workspace 8 silent] alacritty
@@ -44,7 +44,7 @@ hyprctl dispatch exec [workspace 8 silent] alacritty
 # if battery level > 50% then echo yes, the command acpi -b returns Battery 0: Charging, 76%, 00:26:32 until charged
 if [ "$(acpi -b | awk '{print $4}' | tr -d '%,')" -gt 50 ]; then
 	hyprctl dispatch exec [workspace 2 silent] "$HOME/scripts/launch.fish" vivaldi
-	hyprctl dispatch exec [workspace 5 silent] discord
+	hyprctl dispatch exec [workspace 5 silent] webcord
 	hyprctl dispatch exec [workspace 6 silent] spotify
 fi
 
