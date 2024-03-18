@@ -1,0 +1,231 @@
+{
+  // Workspaces
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    // "format": "{windows}",
+    // "window-rewrite-default": "",
+    // "window-rewrite": {
+    //   "class<firefox>": "",
+    //   "class<chromium>": "",
+    //   "class<vivaldi-stable>": "",
+    //   "class<Alacritty>": "",
+    //   "class<code>": "",
+    //   "class<discord>": "",
+    //   "class<spotify>": "",
+    //   "class<libreoffice>": "",
+    //   "class<thunderbird>": "",
+    //   "class<telegram-desktop>": ""
+    // },
+    "format-icons": {
+      "1": " ",
+      "2": " ",
+      "3": " ",
+      "4": "󰖷 ",
+      "5": " ",
+      "6": "󰓇 ",
+      "7": " ",
+      "8": " ",
+      "9": "󰫢 ",
+      "10": " ",
+      // "urgent": " ",
+      // "active": " ",
+      "default": " "
+    },
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  },
+  // Updates
+  "custom/updates": {
+    "format": "  {}",
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/scripts/updates.sh",
+    "restart-interval": 60,
+    "on-click": "alacritty --class update -e paru -Syu",
+    "tooltip": false
+  },
+  // App menu
+  "custom/appmenuicon": {
+    "format": "",
+    "on-click": "rofi -show drun",
+    "tooltip": false
+  },
+  // System tray
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  // Clock
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+    // "format": "{:%H:%M}",
+    // i want format to be H:M day, nth of month
+    "format": "{:%H:%M  %a, %dth}"
+  },
+  // CPU
+  "cpu": {
+    "format": "C {usage}%",
+    "on-click": "alacritty -e btop"
+  },
+  // Memory
+  "memory": {
+    "format": "󰍛 {}%",
+    "on-click": "alacritty -e btop"
+  },
+  // Harddisc space used
+  "disk": {
+    "interval": 30,
+    "format": "󰋊 {percentage_used}%",
+    "path": "/",
+    "on-click": "alacritty -e btop"
+  },
+  // Group Hardware
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "hardware-children",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "cpu",
+      "disk",
+      "memory"
+    ]
+  },
+  // Network
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " {signalStrength}%",
+    // "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "Disconnected",
+    "tooltip-format": "󰈀 {ifname} via {gwaddri}",
+    "tooltip-format-wifi": " {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "alacritty -e nmtui"
+  },
+  // Battery
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐥{icon} {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt": "{icon} {capacity}% {time}",
+    "format-icons": [
+      "󱃍",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  // Pulseaudio
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ]
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{volume}% {icon}󰂯 {format_source}",
+    "format-bluetooth-muted": "󰖁 {icon}󰂯 {format_source}",
+    "format-muted": "󰖁 {format_source}",
+    "format-source": "{volume}% 󰍬",
+    "format-source-muted": "󰍭",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󰜟",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "󰄋",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  // Bluetooth
+  "bluetooth": {
+    "format": "󰂯 {device_alias}",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+  // Idle Inhibator
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip": true,
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "on-click-right": "hyprlock"
+  },
+  "custom/poweroff": {
+    "format": "󰐥",
+    "on-click": "notify-send 'hell no! >:('",
+    "tooltip": false
+  },
+  "custom/sleep": {
+    "format": "󰤄",
+    "on-click": "systemctl suspend",
+    "tooltip": false
+  },
+  "custom/lock": {
+    "format": "󰍁",
+    "on-click": "hyprlock",
+    "tooltip": false
+  },
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "power-children",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/poweroff",
+      "custom/lock",
+      "custom/sleep"
+    ]
+  }
+}
