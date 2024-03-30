@@ -86,10 +86,10 @@ inputbar {
     spacing:                     10px;
     margin:                      0px;
     padding:                     10px;
-    border:                      0px 0px 0px 0px;
+    border:                      0px 0px 1px 0px;
     border-radius:               4px 4px 0px 0px;
     border-color:                @border-colour;
-    background-color:            @transparent;
+    background-color:            @alternate-background;
     text-color:                  @foreground-colour;
     children:                    [ "prompt", "entry" ];
 }
@@ -171,8 +171,8 @@ element normal.active {
     text-color:                  var(active-foreground);
 }
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(text);
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
 }
 element selected.urgent {
     background-color:            var(selected-urgent-background);
@@ -226,15 +226,13 @@ button {
     border:                      0px solid;
     border-radius:               var(border-radius);
     border-color:                @border-colour;
-    background-color:            var(transparent);
+    background-color:            @alternate-background;
     text-color:                  inherit;
     cursor:                      pointer;
 }
 button selected {
-    background-color:            var(background-light);
-    text-color:                  var(selected);
-    border:                      1px solid;
-    border-color:                var(border);
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
 }
 
 /*****----- Message -----*****/

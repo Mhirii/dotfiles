@@ -1,0 +1,6 @@
+* {
+  font:          "MonaspiceNe Nerd Font Medium 12";
+  border-radius: 4px;
+  elm-border-radius: 4px;
+  window-width:  640px;
+}
