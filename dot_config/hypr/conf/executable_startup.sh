@@ -37,7 +37,11 @@ echo_color "Starting up clickup..." "blue"
 clickup &
 echo_color "done!" "green"
 
-hyprctl dispatch exec [workspace 1 silent] alacritty
+# warp-terminal &
+# hyprctl dispatch focuswindow "dev.warp.Warp"
+# hyprctl dispatch toggleFloating "dev.warp.Warp"
+# hyprctl dispatch movetoworkspacesilent 1
+
 hyprctl dispatch exec [workspace special silent] "alacritty -e ~/scripts/tmuxMain.sh"
 hyprctl dispatch exec [workspace 8 silent] alacritty
 
