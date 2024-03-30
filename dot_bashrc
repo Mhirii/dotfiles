@@ -32,7 +32,6 @@ export TERMINAL="alacritty"
 export VISUAL="nvim"
 
 export PNPM_HOME="/home/mhiri/.local/share/pnpm"
-export BUN_INSTALL="$HOME/.bun"
 
 # ╭──────────────────────────────────────────────────────────╮
 # │                         Aliases                          │
@@ -85,6 +84,14 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# ╭──────────────────────────────────────────────────────────╮
+# │                        functions                         │
+# ╰──────────────────────────────────────────────────────────╯
+tmux_fzf() {
+	zi
+	tmux new -s "$(basename pwd)"
+}
+
 # ────────────────────────────────────────────────────────────────
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
 eval "$(zoxide init bash)"
