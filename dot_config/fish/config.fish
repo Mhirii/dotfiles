@@ -24,6 +24,9 @@ end
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
 
+# Fix man pages
+set VIRTUAL_ENV_DISABLE_PROMPT 1
+set -x MANROFFOPT -c
 
 # ━━ Environment setup ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # Apply .profile: use this to put fish compatible .profile stuff in
@@ -47,8 +50,11 @@ set -x GOBIN $GOPATH/bin
 set -x BROWSER vivaldi
 set -x FILEMANAGER thunar
 set -x EDITOR nvim
-set -x TERMINAL wezterm
+set -x TERMINAL alacritty
 set -x VISUAL nvim
+
+set WGPU_BACKEND gl
+set WARP_ENABLE_WAYLAND 1
 
 # ━━ other env variables ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 source ~/.config/fish/env.fish

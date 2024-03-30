@@ -1,2 +1,2 @@
-set -x theme nero
+set -x theme tokyonight
 fish_config theme choose $theme
