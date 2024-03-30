@@ -3,18 +3,18 @@
   "layer": "top",
   "margin-top": 0,
   "margin-bottom": 0,
-  "margin-left": 4,
-  "margin-right": 4,
+  "margin-left": 0,
+  "margin-right": 0,
   "name": "bar",
   "spacing": 0,
-  "reload_style_on_change": true,
   "include": [
     "~/.config/waybar/modules.jsonc"
   ],
   // Modules Left
   "modules-left": [
     "custom/appmenuicon",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "hyprland/window"
   ],
   // Modules Center
   "modules-center": [
@@ -29,17 +29,7 @@
     "pulseaudio",
     "backlight",
     "group/hardware",
+    "battery",
     "group/power"
-  ],
-  "bluetooth": {
-    "format": "󰂯",
-    "format-connected": "󰂱",
-    "format-off": "󰂲"
-  },
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": "󰖩 ",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰖪 "
-  }
+  ]
 }

@@ -49,23 +49,6 @@
       ]
     }
   },
-  // Updates
-  "custom/updates": {
-    "format": "  {}",
-    "tooltip-format": "{}",
-    "escape": true,
-    "return-type": "json",
-    "exec": "~/scripts/updates.sh",
-    "restart-interval": 60,
-    "on-click": "alacritty --class update -e paru -Syu",
-    "tooltip": false
-  },
-  // App menu
-  "custom/appmenuicon": {
-    "format": "",
-    "on-click": "rofi -show drun",
-    "tooltip": false
-  },
   // System tray
   "tray": {
     "icon-size": 16,
@@ -105,6 +88,7 @@
       "transition-left-to-right": false
     },
     "modules": [
+      "battery",
       "cpu",
       "disk",
       "memory"
@@ -131,8 +115,8 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󱐥{icon} {capacity}%",
+    "format": "<span>{icon}</span> {capacity}%",
+    "format-charging": "<span>󱐥{icon}</span> {capacity}%",
     "format-plugged": "󰚥 {capacity}%",
     "format-alt": "{icon} {capacity}% {time}",
     "format-icons": [
@@ -183,12 +167,16 @@
   },
   // Bluetooth
   "bluetooth": {
-    "format": "󰂯 {device_alias}",
+    "format": "󰂯",
+    "format-connected": "󰂯 {device_alias}",
     "format-disabled": "",
     "format-off": "",
     "interval": 30,
     "on-click": "blueman-manager",
-    "format-no-controller": ""
+    "format-no-controller": "",
+    "tooltip": true,
+    "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+    "tooltip-format": "{device_enumerate}"
   },
   // Idle Inhibator
   "idle_inhibitor": {
@@ -199,6 +187,26 @@
       "deactivated": ""
     },
     "on-click-right": "hyprlock"
+  },
+  //          ╭─────────────────────────────────────────────────────────╮
+  //          │                         custom                          │
+  //          ╰─────────────────────────────────────────────────────────╯
+  // Updates
+  "custom/updates": {
+    "format": "  {}",
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",
+    "exec": "~/scripts/updates.sh",
+    "restart-interval": 60,
+    "on-click": "alacritty --class update -e paru -Syu",
+    "tooltip": false
+  },
+  // App menu
+  "custom/appmenuicon": {
+    "format": "",
+    "on-click": "rofi -show drun",
+    "tooltip": false
   },
   "custom/poweroff": {
     "format": "󰐥",
@@ -227,5 +235,11 @@
       "custom/lock",
       "custom/sleep"
     ]
+  },
+  "custom/bluetooth": {
+    "format": "{}",
+    "exec": "~/scripts/bluetooth.sh waybar minimal",
+    "restart-interval": 10,
+    "on-click": "blueman-manager"
   }
 }

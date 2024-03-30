@@ -1,10 +1,8 @@
 @import "theme.css";
+@import "variants/default.css";
 
-/* -----------------------------------------------------
- * General 
- * ----------------------------------------------------- */
-
-@define-color background_darker shade(@background, 0.8);
+/* ── General ───────────────────────────────────────────────────── */
+@define-color background_darker shade(@background, 0.9);
 
 /* ── modules ────────────────────────────────────────────────────── */
 #custom-appmenuicon,
@@ -12,37 +10,26 @@
 #window,
 #tray,
 #idle_inhibitor,
+#bluetooth.on,
 #bluetooth.connected,
 #pulseaudio,
 #network,
 #backlight,
 #hardware,
-#battery,
 #power {
-  background-color: transparent;
-  margin: 4px 2px;
-}
-
-#custom-appmenuicon,
-#workspaces,
-#power {
-  border: 1px solid alpha(@foreground, 0.2);
+  border: 1px solid alpha(@foreground, 0.1);
   background-color: @background_darker;
 }
 
 * {
-  font-family: "MonaspiceNe Nerd Font", FontAwesome, Roboto, Helvetica, Arial,
-    sans-serif;
-  font-weight: 600;
-  border: none;
-  border-radius: 0px;
   color: @color15;
+  font-size: 16px;
 }
 
 window#waybar {
   background-color: alpha(@background, 0.1);
-  /* border: 1px solid alpha(@foreground, 0.2); */
-  border: 1px solid alpha(@foreground, 0.2);
+  /* border: 1px solid alpha(@foreground, 0.1); */
+  border: 1px solid alpha(@foreground, 0.1);
   border-top: none;
   border-radius: 0px;
   border-bottom-right-radius: 8px;
@@ -52,21 +39,29 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
-/* -----------------------------------------------------
- * Workspaces 
- * ----------------------------------------------------- */
+/* ── app menu ──────────────────────────────────────────────────── */
+#custom-appmenuicon {
+  background-color: @background2;
+  color: @accent;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.1);
+  border-radius: 8px;
+  padding: 0px 12px 0px 8px;
+  margin-left: 4px;
+  opacity: 0.8;
+}
 
+/* ── Workspaces ────────────────────────────────────────────────── */
 #workspaces {
   background: @color0;
   margin: 4px 2px;
   padding: 0px 8px;
   border-radius: 8px;
   border: 1px solid;
-  border-color: alpha(@foreground, 0.2);
+  border-color: alpha(@foreground, 0.1);
   font-weight: bold;
   font-style: normal;
   opacity: 0.8;
-  font-size: 16px;
   color: @foreground;
 }
 
@@ -98,7 +93,7 @@ window#waybar {
 #workspaces button.active {
   background: @background2;
   border: 1px solid;
-  border-color: alpha(@foreground, 0.2);
+  border-color: alpha(@foreground, 0.1);
   border-radius: 15px;
   min-width: 40px;
   transition: all 0.3s ease-in-out;
@@ -115,29 +110,7 @@ window#waybar {
   opacity: 0.7;
 }
 
-/* -----------------------------------------------------
- * Tooltips
- * ----------------------------------------------------- */
-
-tooltip {
-  border-radius: 10px;
-  color: @foreground;
-  background-color: @background;
-  border: 1px solid;
-  border-color: alpha(@foreground, 0.2);
-  opacity: 0.8;
-  padding: 20px;
-  margin: 0px;
-}
-
-tooltip label {
-  color: @color15;
-}
-
-/* -----------------------------------------------------
- * Window
- * ----------------------------------------------------- */
-
+/* ── Window ────────────────────────────────────────────────────── */
 #window {
   background: transparent;
   border: none;
@@ -155,38 +128,7 @@ window#waybar.empty #window {
   opacity: 0;
 }
 
-/* -----------------------------------------------------
- * Modules
- * ----------------------------------------------------- */
-
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-/* -----------------------------------------------------
- * Custom Modules
- * ----------------------------------------------------- */
-
-#custom-appmenuicon {
-  background-color: @background2;
-  font-size: 16px;
-  color: @accent;
-  border: 1px solid;
-  border-color: alpha(@foreground, 0.2);
-  border-radius: 8px;
-  padding: 0px 12px 0px 8px;
-  margin-left: 4px;
-  opacity: 0.8;
-}
-
-/* -----------------------------------------------------
- * Custom Exit
- * ----------------------------------------------------- */
-
+/* ── Custom Exit ───────────────────────────────────────────────── */
 #custom-exit {
   margin: 0px 20px 0px 0px;
   padding: 0px;
@@ -194,13 +136,9 @@ window#waybar.empty #window {
   color: @accent;
 }
 
-/* -----------------------------------------------------
- * Custom Updates
- * ----------------------------------------------------- */
-
+/* ── Custom Updates ────────────────────────────────────────────── */
 #custom-updates {
   background-color: @background2;
-  font-size: 16px;
   color: @color15;
   border-radius: 15px;
   padding: 2px 10px 0px 10px;
@@ -222,13 +160,9 @@ window#waybar.empty #window {
   color: #ffffff;
 }
 
-/* -----------------------------------------------------
- * Clock
- * ----------------------------------------------------- */
-
+/* ── Clock ─────────────────────────────────────────────────────── */
 #clock {
   background-color: transparent;
-  font-size: 16px;
   font-weight: 600;
   color: @foreground;
   border-radius: 8px;
@@ -237,39 +171,84 @@ window#waybar.empty #window {
   opacity: 0.8;
 }
 
-/* -----------------------------------------------------
- * Right Side
- * ----------------------------------------------------- */
+/* ── Right Side ────────────────────────────────────────────────── */
 #hardware,
 #pulseaudio,
 #network,
 #backlight,
-#bluetooth,
-#battery {
-  color: @color15;
+#bluetooth {
+  color: @foreground;
   padding: 0px 8px;
   border-radius: 8px;
   opacity: 0.8;
 }
 
-/* -----------------------------------------------------
- * Hardware Group
- * ----------------------------------------------------- */
+/* ── * Network ─────────────────────────────────────────────────── */
+#network {
+  opacity: 0.8;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-right: 0px;
+  margin-left: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-radius: 0px;
+}
+
+#network.ethernet {
+  color: @color15;
+}
+
+#network.wifi {
+  color: @foreground;
+}
+#network.disabled {
+  color: @color7;
+}
+#network.disconnected {
+  color: @color1;
+}
+
+/* ── Bluetooth ─────────────────────────────────────────────────── */
+#bluetooth,
+#bluetooth.off {
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  opacity: 0;
+  border-radius: 0;
+}
+
+#bluetooth.on,
+#bluetooth.connected {
+  color: @color7;
+  padding: 0px 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-right: none;
+  opacity: 0.8;
+  font-size: 16px;
+  margin-right: 0;
+}
+#bluetooth.connected {
+  color: @foreground;
+}
+
+/* ──  Hardware Group ──────────────────────────────────────────── */
 #hardware {
   padding: 0px 4px;
 }
 
+#battery,
 #disk,
 #memory,
 #cpu {
-  margin: 4px;
-  opacity: 0.8;
+  color: @foreground;
+  margin: 4px 4px;
 }
 
-/* -----------------------------------------------------
- * backlight
- * ----------------------------------------------------- */
-
+/* ── backlight ─────────────────────────────────────────────────── */
 #backlight {
   padding-left: 4px;
   margin-left: 0px;
@@ -278,10 +257,7 @@ window#waybar.empty #window {
   border-bottom-left-radius: 0px;
 }
 
-/* -----------------------------------------------------
- * pulseaudio
- * ----------------------------------------------------- */
-
+/* ── pulseaudio ────────────────────────────────────────────────── */
 #pulseaudio {
   padding-left: 4px;
   font-size: 16px;
@@ -296,72 +272,36 @@ window#waybar.empty #window {
   color: @color1;
 }
 
-/* -----------------------------------------------------
- * Network
- * ----------------------------------------------------- */
-
-#network {
-  font-size: 16px;
-  opacity: 0.8;
-  padding-right: 4px;
-  margin-right: 0px;
-  border-right: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+/* ── * Battery ─────────────────────────────────────────────────── */
+#battery.good {
+  color: @foreground;
 }
-
-#network.ethernet {
-  color: @color15;
+#battery.warning {
+  color: @color3;
 }
-
-#network.wifi {
-  color: @color15;
-}
-
-/* -----------------------------------------------------
- * Bluetooth
- * ----------------------------------------------------- */
-#bluetooth,
-#bluetooth.on,
-#bluetooth.off {
-  background-color: transparent;
-  padding: 0px;
-  margin: 0px;
-  border: none;
-  opacity: 0;
-}
-
-#bluetooth.connected {
-  color: @color15;
-  padding: 0px 8px;
-  border-radius: 8px;
-  opacity: 0.8;
-  font-size: 16px;
-}
-
-/* -----------------------------------------------------
- * Battery
- * ----------------------------------------------------- */
-
-#battery {
-  font-size: 16px;
+#battery label {
+  color: @color2;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: @color2;
+  color: @foreground;
 }
 
 @keyframes blink {
   to {
     background-color: @background2;
-    color: @color15;
+    color: @foreground;
   }
+}
+
+#battery.critical {
+  color: @color1;
 }
 
 #battery.critical:not(.charging) {
   background-color: @background2;
-  color: @red;
+  color: @color1;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -369,14 +309,14 @@ window#waybar.empty #window {
   animation-direction: alternate;
 }
 
-/* -----------------------------------------------------
- * Idle Inhibator
- * ----------------------------------------------------- */
+/* ── Idle Inhibator ────────────────────────────────────────────── */
 #idle_inhibitor,
 #tray {
   padding: 0px 8px;
   margin: 4px 2px;
   border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.1);
   opacity: 0.8;
 }
 
@@ -393,10 +333,7 @@ window#waybar.empty #window {
   opacity: 0.8;
 }
 
-/* -----------------------------------------------------
- * Tray
- * ----------------------------------------------------- */
-
+/* ── Tray ──────────────────────────────────────────────────────── */
 #tray {
   margin-right: 0px;
   padding-right: 4px;
@@ -420,7 +357,7 @@ window#waybar.empty #window {
   margin-right: 4px;
   border-radius: 8px;
   border: 1px solid;
-  border-color: alpha(@foreground, 0.2);
+  border-color: alpha(@foreground, 0.1);
   background-color: @background2;
   opacity: 0.8;
 }

@@ -1,7 +1,10 @@
 #!/bin/bash
 
-variants=$(ls ./variants)
-selected_variant=$(echo -e "$variants" | rofi -dmenu -i -config $HOME/.config/rofi/config.rasi "Select variant: ")
+# variants should be directory in $HOME/.config/waybar/variants
+# variants=$(ls ./variants)
+cd "$HOME"/.config/waybar/variants || exit
+variants=$(ls -d */ | sed 's/\///')
+selected_variant=$(echo -e "$variants" | rofi -dmenu -i -config "$HOME/.config/rofi/config.rasi" "Select variant: ")
 
 waybar_path="$HOME/.config/waybar"
 variant_path="$waybar_path/variants/$selected_variant"
