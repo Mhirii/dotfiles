@@ -73,9 +73,9 @@ program = "/usr/bin/fish"
 [window]
 decorations = "full"
 decorations_theme_variant = "Dark"
-dynamic_padding = true
+dynamic_padding = false
 dynamic_title = true
-opacity = 0.8
+opacity = 0.7
 title = "Alacritty"
 
 [window.class]
