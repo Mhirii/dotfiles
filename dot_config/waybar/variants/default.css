@@ -42,6 +42,7 @@ window#waybar {
 #backlight,
 #hardware,
 #battery,
+#submap,
 #power {
   background-color: transparent;
   margin: 4px 2px;
@@ -53,6 +54,7 @@ window#waybar {
   border: 1px solid @border_color;
   background-color: @background_darker;
 }
+
 /* ── Tooltips ──────────────────────────────────────────────────── */
 tooltip {
   border-radius: 8px;

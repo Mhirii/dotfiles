@@ -2,9 +2,13 @@
 @import "variants/default.css";
 
 /* ── General ───────────────────────────────────────────────────── */
-@define-color background_darker alpha(shade(@background, 0.9), 0.5);
+@define-color background_darker shade(@background, 0.9);
 
 /* ── modules ────────────────────────────────────────────────────── */
+* {
+  background: transparent;
+}
+
 #custom-appmenuicon,
 #workspaces,
 #window,
@@ -17,34 +21,35 @@
 #backlight,
 #hardware,
 #power {
-  border: 1px solid alpha(@foreground, 0.1);
-  background-color: @background_darker;
+  border: 0px solid alpha(@foreground, 0.1);
+  background-color: transparent;
 }
 
 * {
   color: @color15;
-  font-size: 16px;
+  font-size: 14px;
+  ;
 }
 
 window#waybar {
   background-color: alpha(@background, 0.1);
-  /* border: 1px solid alpha(@foreground, 0.1); */
-  border: 1px solid alpha(@foreground, 0.1);
+  /* border: 0px solid alpha(@foreground, 0.1); */
+  border: 0px solid alpha(@foreground, 0.1);
   border-top: none;
   border-radius: 0px;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
-  padding: 2px;
+  padding: 0px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
 /* ── app menu ──────────────────────────────────────────────────── */
 #custom-appmenuicon {
-  background-color: alpha(@color0, 0.8);
+  background-color: @transparent;
   color: @accent;
-  border: 1px solid;
-  border-color: alpha(@foreground, 0.1);
+  border: 0px solid;
+  border-color: alpha(@accent, 0.5);
   border-radius: 8px;
   padding: 0px 12px 0px 8px;
   margin-left: 4px;
@@ -53,11 +58,11 @@ window#waybar {
 
 /* ── Workspaces ────────────────────────────────────────────────── */
 #workspaces {
-  background: alpha(@color0, 0.8);
-  margin: 4px 2px;
+  background-color: transparent;
+  margin: 2px 2px;
   padding: 0px 8px;
   border-radius: 8px;
-  border: 1px solid;
+  border: 0px solid;
   border-color: alpha(@foreground, 0.1);
   font-weight: bold;
   font-style: normal;
@@ -79,7 +84,7 @@ window#waybar {
 #workspaces button {
   padding: 0px 4px;
   padding-right: 0px;
-  margin: 1px 0px;
+  margin: 0px 0px;
   border-radius: 15px;
   border: 0px;
   color: @foreground;
@@ -92,12 +97,26 @@ window#waybar {
   color: @color15;
 }
 
+@keyframes changebg {
+  from {
+    background: linear-gradient(0deg, alpha(mix(@foreground, @background, 0.9), 0.1), @background );
+    border-color: alpha(@foreground, 0.3);
+  }
+
+  to {
+    background: linear-gradient(180deg, alpha(mix(@foreground, @background, 0.5), 0.4), @background );
+    border-color: transparent;
+  }
+}
+
 #workspaces button.active {
-  background: alpha(@background, 0.5);
+  animation-duration: 4s;
+  animation-name: changebg;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   border: 1px solid;
-  border-color: alpha(@foreground, 0.1);
   border-radius: 15px;
-  min-width: 40px;
+  min-width: 30px;
   transition: all 0.3s ease-in-out;
   opacity: 1;
 }
@@ -117,7 +136,8 @@ window#waybar {
 #submap {
   padding: 0px 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
+  ;
 }
 
 #submap.launch {
@@ -132,11 +152,12 @@ window#waybar {
 #window {
   background: transparent;
   border: none;
-  margin: 2px 4px;
-  padding: 2px 8px;
+  margin: 0px 4px;
+  padding: 0px 8px;
   border-radius: 8px;
   color: @color15;
-  font-size: 14px;
+  font-size: 12px;
+  ;
   font-weight: 600;
   opacity: 0.8;
 }
@@ -161,7 +182,7 @@ window#waybar.empty #window {
   color: @foreground;
   border-radius: 8px;
   padding: 0px 8px;
-  margin: 4px 2px;
+  margin: 0px 2px;
   opacity: 0.8;
 }
 
@@ -224,7 +245,8 @@ window#waybar.empty #window {
   border-bottom-left-radius: 8px;
   border-right: none;
   opacity: 0.8;
-  font-size: 16px;
+  font-size: 14px;
+  ;
   margin-right: 0;
 }
 
@@ -242,7 +264,7 @@ window#waybar.empty #window {
 #memory,
 #cpu {
   color: @foreground;
-  margin: 4px 4px;
+  margin: 0px 4px;
 }
 
 /* ── backlight ─────────────────────────────────────────────────── */
@@ -257,7 +279,7 @@ window#waybar.empty #window {
 /* ── pulseaudio ────────────────────────────────────────────────── */
 #pulseaudio {
   padding-left: 4px;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 0px;
   margin-right: 0px;
   border-left: 0px;
@@ -312,9 +334,9 @@ window#waybar.empty #window {
 #idle_inhibitor,
 #tray {
   padding: 0px 8px;
-  margin: 4px 2px;
+  margin: 0px 2px;
   border-radius: 8px;
-  border: 1px solid;
+  border: 0px solid;
   border-color: alpha(@foreground, 0.1);
   opacity: 0.8;
 }
@@ -352,25 +374,25 @@ window#waybar.empty #window {
 #power {
   padding: 0px 0px;
   color: @accent;
-  margin: 4px 2px;
+  margin: 0px 2px;
   margin-right: 4px;
   border-radius: 8px;
-  border: 1px solid;
+  border: 0px solid;
   border-color: alpha(@foreground, 0.1);
-  background-color: alpha(@color0, 0.8);
+  background-color: @transparent;
   opacity: 0.8;
 }
 
 #custom-poweroff,
 #custom-sleep,
 #custom-lock {
-  padding: 4px 8px;
+  padding: 0px 8px;
   margin: 0px;
   opacity: 0.8;
 }
 
 #custom-poweroff {
   color: @accent;
-  padding: 4px 10px;
+  padding: 0px 10px;
   border-radius: 8px;
 }

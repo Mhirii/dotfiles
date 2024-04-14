@@ -4,7 +4,7 @@
 @define-color background1 #1f2336;
 @define-color background2 #24283b;
 
-@define-color color0  #15161e;
+@define-color color0 #15161e;
 @define-color color1 #f7768e;
 @define-color color2 #9ece6a;
 @define-color color3 #e0af68;
@@ -21,4 +21,4 @@
 @define-color color14 #7dcfff;
 @define-color color15 #c0caf5;
 
-@define-color accent @color1;
+@define-color accent @color4;

@@ -49,6 +49,9 @@
       ]
     }
   },
+  "hyprland/submap": {
+    "format": "{}"
+  },
   // System tray
   "tray": {
     "icon-size": 16,
