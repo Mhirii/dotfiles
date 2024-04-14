@@ -55,6 +55,7 @@ set -x VISUAL nvim
 
 set WGPU_BACKEND gl
 set WARP_ENABLE_WAYLAND 1
+set wallpath /home/mhiri/Pictures/good/
 
 # ━━ other env variables ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 source ~/.config/fish/env.fish

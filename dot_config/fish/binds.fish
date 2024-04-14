@@ -18,8 +18,8 @@ if [ "$fish_key_bindings" = fish_vi_key_bindings ]
     bind \ev nvim
     bind -Minsert \eV lvim
     bind \eV lvim
-    bind -Minsert \ee gui_explore
-    bind \ee gui_explore
+    bind -Minsert \ee yz
+    bind \ee yz
     bind -Minsert \eg lazygit
     bind \eg lazygit
     bind -Minsert \ec edit_config
@@ -50,7 +50,7 @@ else
 
     bind \ef zoxide_find
     bind \ev nvim
-    bind \ee gui_explore
+    bind \ee yz
     bind \eg lazygit
 
     bind right forward-char
