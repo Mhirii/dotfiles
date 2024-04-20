@@ -13,28 +13,24 @@
       -60deg,
       @background,
       @background,
-      mix(@color4, @background, 0.1)
+      mix(@color4, @bg, 0.1)
     );
   }
   5% {
     background: linear-gradient(
       60deg,
       @background,
-      mix(@color4, @background, 0.9),
-      mix(@color5, @background, 0.3)
+      mix(@color4, @bg, 0.9),
+      mix(@color5, @bg, 0.3)
     );
   }
 
   15% {
-    background: linear-gradient(
-      180deg,
-      @background,
-      mix(@color5, @background, 0.7)
-    );
+    background: linear-gradient(180deg, @bg, mix(@color5, @bg, 0.7));
   }
 
   30% {
-    background: linear-gradient(360deg, @background, @background);
+    background: linear-gradient(360deg, @bg, @bg);
     border-color: @borderColor;
   }
 }
@@ -371,6 +367,9 @@ window#waybar {
 }
 #mpris.chromium {
   color: @foreground;
+}
+#mpris.paused {
+  color: @color7;
 }
 
 #workspaces,

@@ -37,8 +37,8 @@
   },
   "mpris": {
     "format": "{player_icon} {title}",
-    "title-len": 30,
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "title-len": 40,
+    "format-paused": "{status_icon} {title}",
     "dynamic-len": 40,
     "player-icons": {
       "default": "▶",
