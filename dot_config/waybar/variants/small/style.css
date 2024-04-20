@@ -3,78 +3,10 @@
 
 /* ── General ───────────────────────────────────────────────────── */
 @define-color background_darker alpha(shade(@background, 0.9), 0.5);
-@define-color borderColor alpha(@foreground, 0.3);
+@define-color bg alpha(@background, 0.5);
+@define-color borderColor alpha(mix(@foreground, @background, 0.2), 0.5);
 
-/* ── modules ────────────────────────────────────────────────────── */
-#workspaces,
-#tray,
-#pulseaudio,
-#backlight,
-#tray,
-#clock,
-#hardware {
-  background-color: @background;
-  border: 1px solid @borderColor;
-}
-
-* {
-  color: @color15;
-  font-size: 16px;
-}
-
-window#waybar {
-  /* border: 1px solid alpha(@foreground, 0.1); */
-  border-top: none;
-  border-radius: 0px;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  padding: 2px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-}
-
-/* ── Workspaces ────────────────────────────────────────────────── */
-#workspaces {
-  background: @background;
-  margin: 4px 0px;
-  margin-right: 8px;
-  padding: 0px 8px;
-  border-radius: 8px;
-  border: 1px solid;
-  border-color: @borderColor;
-  font-weight: bold;
-  font-style: normal;
-  opacity: 0.8;
-  color: @foreground;
-}
-
-#workspaces button.empty {
-  color: @color7;
-  background-color: transparent;
-  transition: all 0.3s ease-in-out;
-  opacity: 0.2;
-}
-
-#workspaces button.empty * {
-  color: @color15;
-}
-
-#workspaces button {
-  padding: 0px 4px;
-  padding-right: 0px;
-  margin: 1px 0px;
-  border-radius: 15px;
-  border: 0px;
-  color: @foreground;
-  background-color: transparent;
-  transition: all 0.3s ease-in-out;
-  opacity: 0.6;
-}
-
-#workspaces button * {
-  color: @color15;
-}
-
+/* ── Keyframes ─────────────────────────────────────────────────── */
 @keyframes changebg {
   0% {
     background: linear-gradient(
@@ -107,6 +39,87 @@ window#waybar {
   }
 }
 
+/* ── modules ────────────────────────────────────────────────────── */
+#workspaces,
+#submap,
+#mpris,
+#pulseaudio,
+#backlight,
+#tray,
+#clock,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#taskbar,
+#hardware {
+  background-color: @bg;
+  border: 1px solid @borderColor;
+  border-radius: 8px;
+  margin: 2px;
+  padding: 2px;
+  opacity: 0.9;
+  padding-bottom: 0px;
+}
+
+* {
+  color: @color15;
+  font-size: 11pt;
+}
+
+window#waybar {
+  border-top: none;
+  border-radius: 0px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 2px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* ── Workspaces ────────────────────────────────────────────────── */
+#workspaces {
+  background: @bg;
+  margin: 2px 4px;
+  margin-right: 0px;
+  padding-left: 8px;
+  border-radius: 8px 0px 0px 8px;
+  border: 1px solid;
+  border-right: 0px;
+  border-color: @borderColor;
+  font-weight: bold;
+  font-style: normal;
+  color: @foreground;
+  margin-left: 0px;
+}
+
+#workspaces button.empty {
+  color: @color7;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.2;
+}
+
+#workspaces button.empty * {
+  color: @color15;
+}
+
+#workspaces button {
+  padding: 0px 4px;
+  padding-right: 0px;
+  margin: 1px 0px;
+  border-radius: 15px;
+  border: 0px;
+  color: @foreground;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+}
+
+#workspaces button * {
+  color: @color15;
+}
+
 #workspaces button.active {
   animation-duration: 8s;
   animation-name: changebg;
@@ -137,49 +150,81 @@ window#waybar {
   padding: 0px 8px;
   font-weight: 600;
   font-size: 14px;
+  background: transparent;
 }
 
 #submap.launch {
   color: @color2;
+  border-color: @color2;
 }
 
 #submap.WindowMode {
   color: @color1;
+  border-color: @color1;
+}
+
+/* ── Taskbar ───────────────────────────────────────────────────── */
+#taskbar {
+  padding: 0px 4px;
+  margin: 0px 4px;
+  border-radius: 0px 8px 8px 0px;
+  border-left: 0px;
+  margin-left: 0px;
+}
+#taskbar button {
+  padding: 0px;
+  margin: 2px 1px;
+  padding-left: 4px;
+  border-radius: 8px;
+  opacity: 0.7;
+}
+#taskbar button.active {
+  background: linear-gradient(
+    45deg,
+    alpha(@color5, 0.16),
+    alpha(@color5, 0.12),
+    alpha(@color4, 0.08),
+    alpha(@color4, 0.04)
+  );
+  opacity: 1;
+}
+#taskbar.empty {
+  padding: 0px;
+  padding-right: 8px;
 }
 
 /* ── Clock ─────────────────────────────────────────────────────── */
 #clock {
   font-weight: 600;
   color: @foreground;
-  background: @background;
-  border-radius: 0px 8px 8px 0px;
-  border-left: 0px;
-  padding: 0px 8px;
-  margin: 4px 0px;
+  background: @bg;
+  border-radius: 8px;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin: 2px 4px;
   margin-right: 4px;
-  opacity: 0.8;
 }
 
 /* ── Right Side ────────────────────────────────────────────────── */
 #hardware,
 #pulseaudio,
-#network,
-#backlight,
-#bluetooth {
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#backlight {
   color: @foreground;
-  padding: 0px 8px;
-  border-radius: 8px;
-  opacity: 0.8;
+  padding-right: 4px;
+  padding-left: 4px;
 }
 
 /* ──  Hardware Group ──────────────────────────────────────────── */
 #hardware {
-  padding: 0px 4px;
-  margin: 4px 0px;
-  border-radius: 0px;
+  margin: 2px 0px;
+  border-radius: 0px 8px 8px 0px;
+  padding-top: 2px;
   border: 1px solid;
   border-left: 0px;
-  border-right: 0px;
   border-color: @borderColor;
 }
 
@@ -188,32 +233,69 @@ window#waybar {
 #memory,
 #cpu {
   color: @foreground;
-  margin: 4px 4px;
+  margin: 2px 4px;
 }
 
 /* ── backlight ─────────────────────────────────────────────────── */
 #backlight {
-  margin: 4px 0px;
+  margin: 2px 0px;
   border-color: @borderColor;
+  padding-top: 2px;
   border-radius: 0px;
   border-left: 0px;
   border-right: 0px;
+  padding-right: 8px;
 }
 
 /* ── pulseaudio ────────────────────────────────────────────────── */
 #pulseaudio {
   padding-left: 8px;
   font-size: 16px;
-  margin-left: 8px;
+  margin-left: 0px;
   margin-right: 0px;
   border-right: 0px;
   border-radius: 0px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  padding-top: 2px;
 }
 
 #pulseaudio.muted {
   color: @color1;
+}
+
+/* ── Network ───────────────────────────────────────────────────── */
+#network {
+  padding: 0px;
+  margin: 0px;
+  padding-right: 5px;
+}
+#networks {
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 6px;
+  margin: 0px;
+}
+#network.info {
+  padding: 0px 4px;
+}
+/* ── Bluetooth ─────────────────────────────────────────────────── */
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
+  border-radius: 0px;
+  border-right: 0px;
+  border-left: 0px;
+
+  margin: 0px;
+  padding-right: 6px;
+}
+
+#bluetooth.info {
+  padding: 0px 4px;
 }
 
 /* ── * Battery ─────────────────────────────────────────────────── */
@@ -259,16 +341,12 @@ window#waybar {
 
 /* ── Tray ──────────────────────────────────────────────────────── */
 #tray {
-  border-radius: 0px;
+  border-radius: 8px;
   border: 1px solid;
   border-color: @borderColor;
-  border-left: 0px;
-  border-right: 0px;
-  margin: 4px 0px;
-  opacity: 0.8;
+  margin: 2px 0px;
   margin-right: 0px;
-  padding: 0px 8px;
-  padding-right: 4px;
+  padding: 0px 4px;
 }
 
 #tray > .passive {
@@ -279,65 +357,36 @@ window#waybar {
   -gtk-icon-effect: highlight;
 }
 
-/* ── MPRIS ─────────────────────────────────────────────────────── */
+/* ── Mpris ─────────────────────────────────────────────────────── */
 
-@keyframes mprisbg {
-  4% {
-    background: linear-gradient(
-      -30deg,
-      @background,
-      mix(@color4, @background, 0.7),
-      @background
-    );
-  }
-
-  7% {
-    background: linear-gradient(
-      30deg,
-      mix(@color4, @background, 0.6),
-      mix(@color5, @background, 0.8),
-      mix(@color5, @background, 0.9)
-    );
-  }
-
-  10% {
-    background: linear-gradient(
-      60deg,
-      mix(@color4, @background, 0.7),
-      mix(@color5, @background, 0.6),
-      @background
-    );
-  }
-
-  13% {
-    background: linear-gradient(
-      90deg,
-      @background,
-      mix(@color5, @background, 0.8),
-      @background
-    );
-  }
-
-  15% {
-    background: linear-gradient(
-      120deg,
-      @background,
-      @background,
-      @background,
-      @background
-    );
-  }
-}
 #mpris {
-  background-color: @background;
+  background-color: @bg;
   color: @foreground;
   padding: 0px 8px;
-  margin: 4px 8px;
+  margin: 2px 8px;
   border-radius: 8px;
   /* animation-duration: 20s; */
   /* animation-name: mprisbg; */
   /* animation-iteration-count: infinite; */
   /* animation-direction: alternate; */
   border: 1px solid transparent;
-  opacity: 0.8;
+}
+
+#workspaces,
+#submap,
+#mpris,
+#pulseaudio,
+#backlight,
+#tray,
+#clock,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#taskbar,
+#hardware {
+  margin-bottom: 0px;
+  margin-top: 4px;
+  padding-bottom: 0px;
+  padding-top: 0px;
 }

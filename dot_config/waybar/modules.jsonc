@@ -244,5 +244,10 @@
     "exec": "~/scripts/bluetooth.sh waybar minimal",
     "restart-interval": 10,
     "on-click": "blueman-manager"
+  },
+  "taskbar": {
+    "all-outputs": false,
+    "format": "{icon}",
+    "icon-theme": "Fluent-dark"
   }
 }
