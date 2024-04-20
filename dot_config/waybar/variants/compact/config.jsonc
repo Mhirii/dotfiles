@@ -1,0 +1,50 @@
+{
+  // General Settings
+  "layer": "top",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 4,
+  "margin-right": 4,
+  "name": "bar",
+  "height": 40,
+  "spacing": 0,
+  "reload_style_on_change": true,
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  "modules-left": [],
+  "modules-center": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "mpris",
+    "pulseaudio",
+    "backlight",
+    "tray",
+    "group/hardware",
+    "clock"
+  ],
+  "modules-right": [],
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%H:%M  %a, %dth}",
+    // "format": "{:%H:%M}",
+    // i want format to be H:M day, nth of month
+    "format": "{:%H:%M}"
+  },
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "title-len": 30,
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "dynamic-len": 40,
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵",
+      "chromium": "",
+      "spotify": ""
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    // "ignored-players": ["firefox"]
+  }
+}

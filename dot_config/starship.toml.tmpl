@@ -26,12 +26,12 @@ vimcmd_visual_symbol=  "[](purple)"
 
 [directory]
 {{- if eq .theme "tokyonight" }}
-  style = " fg:red bg:none"
+  style = " fg:blue bg:none"
   {{- if eq .chezmoi.hostname "Desktop" }}
-    format = "[]($style)[ ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
+    format = "[]($style)[ ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
   {{- end }}
   {{- if eq .chezmoi.hostname "Laptop" }}
-    format = "[]($style)[󰌢 ](bg:red fg:black)[](fg:red bg:red)[ $path](bg:black fg:red bold)[ ](fg:black)"
+    format = "[]($style)[󰌢 ](bg:blue fg:black)[](fg:blue bg:blue)[ $path](bg:black fg:blue bold)[ ](fg:black)"
   {{- end }}
 {{- end }}
 {{- if eq .theme "rosepine" }}
@@ -106,7 +106,7 @@ threshold = 80
 [{{ .chezmoi.config.git.command }}_branch]
 style = "bg:none fg:black"
 {{- if eq .theme "tokyonight" }}
-format = "[](fg:purple)[[ ](bg:purple fg:black bold)[](fg:purple bg:black) $branch](bg:black fg:purple)[ ]($style)"
+format = "[](fg:green)[[ ](bg:green fg:black bold)[](fg:green bg:black) $branch](bg:black fg:green)[ ]($style)"
 {{- end }}
 {{- if eq .theme "rosepine" }}
 format = "[](fg:green)[[ ](bg:green fg:black bold)[](fg:green bg:black) $branch](bg:black fg:green)[ ]($style)"
