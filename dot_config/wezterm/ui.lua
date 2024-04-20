@@ -19,8 +19,9 @@ M.font = wezterm.font({
 	italic = false,
 })
 M.font_size = 11
+M.line_height = 1
 
 M.window_background_opacity = 0.5
 M.color_schemes = require("themes")
-M.color_scheme = "nero"
+M.color_scheme = "tokyonight"
 return M
