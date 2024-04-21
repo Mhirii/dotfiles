@@ -77,11 +77,9 @@ window#waybar {
 #workspaces {
   background: @bg;
   margin: 2px 4px;
-  margin-right: 0px;
   padding-left: 8px;
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 8px;
   border: 1px solid;
-  border-right: 0px;
   border-color: @borderColor;
   font-weight: bold;
   font-style: normal;
@@ -161,11 +159,11 @@ window#waybar {
 
 /* ── Taskbar ───────────────────────────────────────────────────── */
 #taskbar {
+  background: transparent;
+  border: 0px;
   padding: 0px 4px;
   margin: 0px 4px;
-  border-radius: 0px 8px 8px 0px;
-  border-left: 0px;
-  margin-left: 0px;
+  border-radius: 8px;
 }
 #taskbar button {
   padding: 0px;

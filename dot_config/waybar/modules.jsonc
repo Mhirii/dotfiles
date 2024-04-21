@@ -63,7 +63,7 @@
     "format-alt": "{:%Y-%m-%d}",
     // "format": "{:%H:%M}",
     // i want format to be H:M day, nth of month
-    "format": "{:%H:%M  %a, %dth}"
+    "format": "{:%H:%M %a, %dth}"
   },
   // CPU
   "cpu": {
@@ -98,7 +98,32 @@
     ]
   },
   // Network
+  //
   "network": {
+    "format": "{ifname} {signalStrength}%",
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪"
+  },
+  "network#info": {
+    "format": "{ifname} {signalStrength}%",
+    "format-wifi": "{essid} {signalStrength}%",
+    "format-ethernet": "{essid} ",
+    "format-disconnected": ""
+  },
+  "group/networks": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "network-children",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "network",
+      "network#info"
+    ]
+  },
+  "network#bloat": {
     "format": "{ifname}",
     "format-wifi": " {signalStrength}%",
     // "format-wifi": "  {essid}",
@@ -170,6 +195,28 @@
   },
   // Bluetooth
   "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱",
+    "format-off": "󰂲"
+  },
+  "bluetooth#info": {
+    "format": "",
+    "format-connected": "{device_alias}",
+    "format-off": ""
+  },
+  "group/bluetooths": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "network-children",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "bluetooth",
+      "bluetooth#info"
+    ]
+  },
+  "bluetooth#bloat": {
     "format": "󰂯",
     "format-connected": "󰂯 {device_alias}",
     "format-disabled": "",
@@ -245,9 +292,25 @@
     "restart-interval": 10,
     "on-click": "blueman-manager"
   },
-  "taskbar": {
-    "all-outputs": false,
+  "wlr/taskbar": {
+    "all-outputs": true,
     "format": "{icon}",
-    "icon-theme": "Fluent-dark"
+    "icon-theme": "Fluent-dark",
+    "on-click": "activate"
+  },
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "title-len": 40,
+    "format-paused": "{status_icon} {title} - {artist}",
+    "dynamic-len": 40,
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵",
+      "chromium": "",
+      "spotify": ""
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
   }
 }
