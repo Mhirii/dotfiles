@@ -50,7 +50,8 @@ set -x GOBIN $GOPATH/bin
 set -x BROWSER vivaldi
 set -x FILEMANAGER thunar
 set -x EDITOR nvim
-set -x TERMINAL alacritty
+set -x TERMINAL wezterm
+set -x terminal $TERMINAL
 set -x VISUAL nvim
 
 set WGPU_BACKEND gl
@@ -139,8 +140,12 @@ thefuck --alias | source
 
 if status --is-interactive
     source ("/usr/bin/starship" init fish --print-full-init | psub)
-    if test -x /usr/bin/neofetch
-        neofetch --ascii_colors 6 6 2 2 2 2
+    if test -x /usr/bin/pfetch
+        pfetch
+    else
+        if test -x /usr/bin/neofetch
+            neofetch --ascii_colors 6 6 2 2 2 2
+        end
     end
 end
 
