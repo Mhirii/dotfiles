@@ -33,17 +33,17 @@ tmux new -s init &
 echo_color "Tmux initialized!" "green"
 
 echo_color "Starting up applications..." "cyan"
-echo_color "Starting up clickup..." "blue"
-clickup &
-echo_color "done!" "green"
-
 hyprctl dispatch exec [workspace special silent] "alacritty -e ~/scripts/tmuxMain.sh"
 hyprctl dispatch exec [workspace 8 silent] alacritty
 
-if [ "$(acpi -b | awk '{print $4}' | tr -d '%,')" -gt 50 ]; then
+# if [ "$(acpi -b | awk '{print $4}' | tr -d '%,')" -gt 50 ]; then
+if [ "$(acpi -b | sed 's/.*charging, //' | sed 's/%.*//')" -gt 50 ]; then
 	hyprctl dispatch exec [workspace 2 silent] "$HOME/scripts/launch.fish" vivaldi
 	hyprctl dispatch exec [workspace 5 silent] webcord
 	hyprctl dispatch exec [workspace 6 silent] "$HOME/scripts/launch.fish" spotify
 fi
+echo_color "Starting up clickup..." "blue"
+clickup &
+echo_color "done!" "green"
 
 echo_color "Applications started!" "green"
