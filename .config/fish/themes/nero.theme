@@ -1,0 +1,22 @@
+# Syntax Highlighting Colors
+fish_color_normal a9c7d6
+fish_color_command 3df5de
+fish_color_keyword b291f3
+fish_color_quote c8e155
+fish_color_redirection c0caf5
+fish_color_end e0a352
+fish_color_error f5596b
+fish_color_param 0da8f2
+fish_color_comment 565f89
+fish_color_selection --background=283457
+fish_color_search_match --background=283457
+fish_color_operator 92cc33
+fish_color_escape bb9af7
+fish_color_autosuggestion 565f89
+
+# Completion Pager Colors
+fish_pager_color_progress 565f89
+fish_pager_color_prefix 0da8f2
+fish_pager_color_completion c0caf5
+fish_pager_color_description 565f89
+fish_pager_color_selected_background --background=283457
