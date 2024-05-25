@@ -1,0 +1,46 @@
+{
+  // General Settings
+  "layer": "top",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 4,
+  "margin-right": 4,
+  "name": "bar",
+  "spacing": 0,
+  "reload_style_on_change": true,
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  // Modules Left
+  "modules-left": [
+    "custom/appmenuicon",
+    "hyprland/workspaces",
+    "hyprland/submap"
+  ],
+  // Modules Center
+  "modules-center": [
+    "clock"
+  ],
+  // Modules Right
+  "modules-right": [
+    "tray",
+    "idle_inhibitor",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "group/hardware",
+    "group/power"
+  ],
+  "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱",
+    "format-off": "󰂲"
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "󰖩 ",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰖪 "
+  }
+}

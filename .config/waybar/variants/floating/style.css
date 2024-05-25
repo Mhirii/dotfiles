@@ -1,0 +1,420 @@
+@import "theme.css";
+@import "variants/default.css";
+
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
+* {
+  font-family: "MonaspiceNe Nerd Font", FontAwesome, Roboto, Helvetica, Arial,
+    sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 0px;
+  color: @foreground;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 0px solid #ffffff;
+  background: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+#workspaces {
+  background: @background;
+  margin: 2px;
+  padding: 0px 8px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+  font-weight: bold;
+  font-style: normal;
+  opacity: 0.8;
+  font-size: 16px;
+  color: @foreground;
+}
+
+#workspaces button.empty {
+  color: @color7;
+  background-color: @background;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.2;
+}
+#workspaces button.empty * {
+  color: @color7;
+}
+
+#workspaces button {
+  padding: 0px 4px;
+  padding-right: 0px;
+  margin: 1px 0px;
+  border-radius: 15px;
+  border: 0px;
+  color: @foreground;
+  background-color: @background;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.4;
+}
+#workspaces button * {
+  color: @color15;
+}
+
+#workspaces button.active {
+  background: @background2;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+  border-radius: 15px;
+  min-width: 40px;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+#workspaces button * {
+  color: @foreground;
+}
+
+#workspaces button:hover {
+  color: @foreground;
+  background: @background1;
+  border-radius: 15px;
+  opacity: 0.7;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+  border-radius: 10px;
+  color: @foreground;
+  background-color: @background;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+  opacity: 0.8;
+  padding: 20px;
+  margin: 0px;
+}
+
+tooltip label {
+  color: @color7;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+  background: @background;
+  margin: 2px 4px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+  padding: 2px 8px;
+  border-radius: 8px;
+  color: @color7;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  opacity: 0;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Custom Modules
+ * ----------------------------------------------------- */
+
+#custom-appmenuicon {
+  background-color: @accent;
+  font-size: 16px;
+  color: @color0;
+  border-radius: 8px;
+  padding: 0px 12px 0px 8px;
+  margin: 2px 4px;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  font-size: 20px;
+  color: @accent;
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+  background-color: @background2;
+  font-size: 16px;
+  color: @color7;
+  border-radius: 15px;
+  padding: 2px 10px 0px 10px;
+  margin: 5px 15px 5px 0px;
+  opacity: 0.8;
+}
+
+#custom-updates.green {
+  background-color: @background2;
+}
+
+#custom-updates.yellow {
+  background-color: #ff9a3c;
+  color: #ffffff;
+}
+
+#custom-updates.red {
+  background-color: #dc2f2f;
+  color: #ffffff;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+  background-color: @background;
+  font-size: 16px;
+  font-weight: 600;
+  color: @foreground;
+  border-radius: 8px;
+  padding: 0px 8px;
+  margin: 2px;
+  opacity: 0.8;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+}
+
+/* -----------------------------------------------------
+ * Right Side
+ * ----------------------------------------------------- */
+#hardware,
+#pulseaudio,
+#network,
+#backlight,
+#bluetooth,
+#battery {
+  color: @color7;
+  margin: 2px;
+  padding: 0px 8px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+  background-color: @background;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+#hardware {
+  padding: 0px 4px;
+}
+
+#disk,
+#memory,
+#cpu {
+  margin: 4px;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * backlight
+ * ----------------------------------------------------- */
+
+#backlight {
+  padding-left: 4px;
+  margin-left: 0px;
+  border-left: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* -----------------------------------------------------
+ * pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+  padding-left: 4px;
+  font-size: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius: 0px;
+}
+
+#pulseaudio.muted {
+  color: @color1;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+  font-size: 16px;
+  opacity: 0.8;
+  padding-right: 4px;
+  margin-right: 0px;
+  border-right: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#network.ethernet {
+  color: @color7;
+}
+
+#network.wifi {
+  color: @color7;
+}
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+#bluetooth,
+#bluetooth.on,
+#bluetooth.off {
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  opacity: 0;
+}
+
+#bluetooth.connected {
+  color: @color7;
+  margin: 2px;
+  padding: 0px 8px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+  background-color: @background;
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+  font-size: 16px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @color2;
+}
+
+@keyframes blink {
+  to {
+    background-color: @background2;
+    color: @color7;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: @background2;
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+#idle_inhibitor,
+#tray {
+  background-color: @background;
+  padding: 0px 8px;
+  margin: 2px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.2);
+  opacity: 0.8;
+}
+
+#idle_inhibitor {
+  margin-left: 0px;
+  border-left: 0px;
+  padding-left: 4px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  opacity: 0.8;
+}
+
+#idle_inhibitor.activated {
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+  margin-right: 0px;
+  padding-right: 4px;
+  border-right: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+#power {
+  padding: 0px 0px;
+  color: @color7;
+  margin: 2px 4px;
+  border-radius: 8px;
+  border: 0px;
+  background-color: @background;
+  opacity: 0.8;
+}
+
+#custom-poweroff,
+#custom-sleep,
+#custom-lock {
+  padding: 4px 8px;
+  margin: 0px;
+  opacity: 0.8;
+}
+#custom-poweroff {
+  padding: 4px 10px;
+  background-color: @accent;
+  color: @color0;
+  border-radius: 8px;
+}

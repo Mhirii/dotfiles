@@ -1,0 +1,99 @@
+{
+  // General Settings
+  "layer": "top",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 4,
+  "margin-right": 4,
+  "name": "bar",
+  "height": 30,
+  "spacing": 0,
+  "reload_style_on_change": true,
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  "modules-left": [
+    "hyprland/workspaces",
+    "wlr/taskbar",
+    "tray",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "mpris"
+  ],
+  "modules-right": [
+    "privacy",
+    "pulseaudio",
+    "backlight",
+    "group/bluetooths",
+    "group/networks",
+    "group/hardware",
+    "clock"
+  ],
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+    "format": "{:%H:%M %a, %dth}"
+  },
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "title-len": 40,
+    "format-paused": "{status_icon} {title}",
+    "dynamic-len": 40,
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵",
+      "chromium": "",
+      "spotify": ""
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱",
+    "format-off": "󰂲"
+  },
+  "bluetooth#info": {
+    "format": "",
+    "format-connected": "{device_alias}",
+    "format-off": ""
+  },
+  "group/bluetooths": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "network-children",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "bluetooth",
+      "bluetooth#info"
+    ]
+  },
+  "network": {
+    "format": "{ifname} {signalStrength}%",
+    "format-wifi": "󰖩",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪"
+  },
+  "network#info": {
+    "format": "{ifname} {signalStrength}%",
+    "format-wifi": "{essid} {signalStrength}%",
+    "format-ethernet": "{essid} ",
+    "format-disconnected": ""
+  },
+  "group/networks": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "network-children",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "network",
+      "network#info"
+    ]
+  }
+}

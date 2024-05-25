@@ -1,0 +1,376 @@
+@import "theme.css";
+@import "variants/default.css";
+
+/* ── General ───────────────────────────────────────────────────── */
+@define-color background_darker alpha(shade(@background, 0.9), 0.5);
+
+/* ── modules ────────────────────────────────────────────────────── */
+#custom-appmenuicon,
+#workspaces,
+#window,
+#tray,
+#idle_inhibitor,
+#bluetooth.on,
+#bluetooth.connected,
+#pulseaudio,
+#network,
+#backlight,
+#hardware,
+#power {
+  border: 1px solid alpha(@foreground, 0.1);
+  background-color: @background_darker;
+}
+
+* {
+  color: @color15;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: alpha(@background, 0.1);
+  /* border: 1px solid alpha(@foreground, 0.1); */
+  border: 1px solid alpha(@foreground, 0.1);
+  border-top: none;
+  border-radius: 0px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 2px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* ── app menu ──────────────────────────────────────────────────── */
+#custom-appmenuicon {
+  background-color: alpha(@color0, 0.8);
+  color: @accent;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.1);
+  border-radius: 8px;
+  padding: 0px 12px 0px 8px;
+  margin-left: 4px;
+  opacity: 0.8;
+}
+
+/* ── Workspaces ────────────────────────────────────────────────── */
+#workspaces {
+  background: alpha(@color0, 0.8);
+  margin: 4px 2px;
+  padding: 0px 8px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.1);
+  font-weight: bold;
+  font-style: normal;
+  opacity: 0.8;
+  color: @foreground;
+}
+
+#workspaces button.empty {
+  color: @color7;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.2;
+}
+
+#workspaces button.empty * {
+  color: @color15;
+}
+
+#workspaces button {
+  padding: 0px 4px;
+  padding-right: 0px;
+  margin: 1px 0px;
+  border-radius: 15px;
+  border: 0px;
+  color: @foreground;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+}
+
+#workspaces button * {
+  color: @color15;
+}
+
+#workspaces button.active {
+  background: alpha(@background, 0.5);
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.1);
+  border-radius: 15px;
+  min-width: 40px;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#workspaces button * {
+  color: @foreground;
+}
+
+#workspaces button:hover {
+  color: @foreground;
+  background: @background1;
+  border-radius: 15px;
+  opacity: 0.7;
+}
+
+/* ── Submap ────────────────────────────────────────────────────── */
+#submap {
+  padding: 0px 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#submap.launch {
+  color: @color2;
+}
+
+#submap.WindowMode {
+  color: @color1;
+}
+
+/* ── Window ────────────────────────────────────────────────────── */
+#window {
+  background: transparent;
+  border: none;
+  margin: 2px 4px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  color: @color15;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  opacity: 0;
+}
+
+/* ── Custom Exit ───────────────────────────────────────────────── */
+#custom-exit {
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  font-size: 20px;
+  color: @accent;
+}
+
+/* ── Clock ─────────────────────────────────────────────────────── */
+#clock {
+  background-color: transparent;
+  font-weight: 600;
+  color: @foreground;
+  border-radius: 8px;
+  padding: 0px 8px;
+  margin: 4px 2px;
+  opacity: 0.8;
+}
+
+/* ── Right Side ────────────────────────────────────────────────── */
+#hardware,
+#pulseaudio,
+#network,
+#backlight,
+#bluetooth {
+  color: @foreground;
+  padding: 0px 8px;
+  border-radius: 8px;
+  opacity: 0.8;
+}
+
+/* ── * Network ─────────────────────────────────────────────────── */
+#network {
+  opacity: 0.8;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-right: 0px;
+  margin-left: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-radius: 0px;
+}
+
+#network.ethernet {
+  color: @color15;
+}
+
+#network.wifi {
+  color: @foreground;
+}
+
+#network.disabled {
+  color: @color7;
+}
+
+#network.disconnected {
+  color: @color1;
+}
+
+/* ── Bluetooth ─────────────────────────────────────────────────── */
+#bluetooth,
+#bluetooth.off {
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  opacity: 0;
+  border-radius: 0;
+}
+
+#bluetooth.on,
+#bluetooth.connected {
+  color: @color7;
+  padding: 0px 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-right: none;
+  opacity: 0.8;
+  font-size: 16px;
+  margin-right: 0;
+}
+
+#bluetooth.connected {
+  color: @foreground;
+}
+
+/* ──  Hardware Group ──────────────────────────────────────────── */
+#hardware {
+  padding: 0px 4px;
+}
+
+#battery,
+#disk,
+#memory,
+#cpu {
+  color: @foreground;
+  margin: 4px 4px;
+}
+
+/* ── backlight ─────────────────────────────────────────────────── */
+#backlight {
+  padding-left: 4px;
+  margin-left: 0px;
+  border-left: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* ── pulseaudio ────────────────────────────────────────────────── */
+#pulseaudio {
+  padding-left: 4px;
+  font-size: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius: 0px;
+}
+
+#pulseaudio.muted {
+  color: @color1;
+}
+
+/* ── * Battery ─────────────────────────────────────────────────── */
+#battery.good {
+  color: @foreground;
+}
+
+#battery.warning {
+  color: @color3;
+}
+
+#battery label {
+  color: @color2;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @foreground;
+}
+
+@keyframes blink {
+  to {
+    background-color: @background2;
+    color: @foreground;
+  }
+}
+
+#battery.critical {
+  color: @color1;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @background2;
+  color: @color1;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* ── Idle Inhibator ────────────────────────────────────────────── */
+#idle_inhibitor,
+#tray {
+  padding: 0px 8px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.1);
+  opacity: 0.8;
+}
+
+#idle_inhibitor {
+  margin-left: 0px;
+  border-left: 0px;
+  padding-left: 4px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  opacity: 0.8;
+}
+
+#idle_inhibitor.activated {
+  opacity: 0.8;
+}
+
+/* ── Tray ──────────────────────────────────────────────────────── */
+#tray {
+  margin-right: 0px;
+  padding-right: 4px;
+  border-right: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+#power {
+  padding: 0px 0px;
+  color: @accent;
+  margin: 4px 2px;
+  margin-right: 4px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: alpha(@foreground, 0.1);
+  background-color: alpha(@color0, 0.8);
+  opacity: 0.8;
+}
+
+#custom-poweroff,
+#custom-sleep,
+#custom-lock {
+  padding: 4px 8px;
+  margin: 0px;
+  opacity: 0.8;
+}
+
+#custom-poweroff {
+  color: @accent;
+  padding: 4px 10px;
+  border-radius: 8px;
+}

@@ -1,0 +1,343 @@
+@import "theme.css";
+@import "variants/default.css";
+
+/* ── General ───────────────────────────────────────────────────── */
+@define-color background_darker alpha(shade(@background, 0.9), 0.5);
+@define-color borderColor alpha(@foreground, 0.3);
+
+/* ── modules ────────────────────────────────────────────────────── */
+#workspaces,
+#tray,
+#pulseaudio,
+#backlight,
+#tray,
+#clock,
+#hardware {
+  background-color: @background;
+  border: 1px solid @borderColor;
+}
+
+* {
+  color: @color15;
+  font-size: 16px;
+}
+
+window#waybar {
+  /* border: 1px solid alpha(@foreground, 0.1); */
+  border-top: none;
+  border-radius: 0px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 2px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* ── Workspaces ────────────────────────────────────────────────── */
+#workspaces {
+  background: @background;
+  margin: 4px 0px;
+  margin-right: 8px;
+  padding: 0px 8px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: @borderColor;
+  font-weight: bold;
+  font-style: normal;
+  opacity: 0.8;
+  color: @foreground;
+}
+
+#workspaces button.empty {
+  color: @color7;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.2;
+}
+
+#workspaces button.empty * {
+  color: @color15;
+}
+
+#workspaces button {
+  padding: 0px 4px;
+  padding-right: 0px;
+  margin: 1px 0px;
+  border-radius: 15px;
+  border: 0px;
+  color: @foreground;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+}
+
+#workspaces button * {
+  color: @color15;
+}
+
+@keyframes changebg {
+  0% {
+    background: linear-gradient(
+      -60deg,
+      @background,
+      @background,
+      mix(@color4, @background, 0.1)
+    );
+  }
+  5% {
+    background: linear-gradient(
+      60deg,
+      @background,
+      mix(@color4, @background, 0.9),
+      mix(@color5, @background, 0.3)
+    );
+  }
+
+  15% {
+    background: linear-gradient(
+      180deg,
+      @background,
+      mix(@color5, @background, 0.7)
+    );
+  }
+
+  30% {
+    background: linear-gradient(360deg, @background, @background);
+    border-color: @borderColor;
+  }
+}
+
+#workspaces button.active {
+  animation-duration: 8s;
+  animation-name: changebg;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+  border: 1px solid;
+  border-color: @borderColor;
+  border-radius: 15px;
+  min-width: 30px;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#workspaces button * {
+  color: @foreground;
+}
+
+#workspaces button:hover {
+  color: @foreground;
+  background: @background1;
+  border-radius: 15px;
+  opacity: 0.7;
+}
+
+/* ── Submap ────────────────────────────────────────────────────── */
+#submap {
+  padding: 0px 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+#submap.launch {
+  color: @color2;
+}
+
+#submap.WindowMode {
+  color: @color1;
+}
+
+/* ── Clock ─────────────────────────────────────────────────────── */
+#clock {
+  font-weight: 600;
+  color: @foreground;
+  background: @background;
+  border-radius: 0px 8px 8px 0px;
+  border-left: 0px;
+  padding: 0px 8px;
+  margin: 4px 0px;
+  margin-right: 4px;
+  opacity: 0.8;
+}
+
+/* ── Right Side ────────────────────────────────────────────────── */
+#hardware,
+#pulseaudio,
+#network,
+#backlight,
+#bluetooth {
+  color: @foreground;
+  padding: 0px 8px;
+  border-radius: 8px;
+  opacity: 0.8;
+}
+
+/* ──  Hardware Group ──────────────────────────────────────────── */
+#hardware {
+  padding: 0px 4px;
+  margin: 4px 0px;
+  border-radius: 0px;
+  border: 1px solid;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: @borderColor;
+}
+
+#battery,
+#disk,
+#memory,
+#cpu {
+  color: @foreground;
+  margin: 4px 4px;
+}
+
+/* ── backlight ─────────────────────────────────────────────────── */
+#backlight {
+  margin: 4px 0px;
+  border-color: @borderColor;
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+/* ── pulseaudio ────────────────────────────────────────────────── */
+#pulseaudio {
+  padding-left: 8px;
+  font-size: 16px;
+  margin-left: 8px;
+  margin-right: 0px;
+  border-right: 0px;
+  border-radius: 0px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+#pulseaudio.muted {
+  color: @color1;
+}
+
+/* ── * Battery ─────────────────────────────────────────────────── */
+@keyframes blink {
+  to {
+    padding-left: 4px;
+    padding-right: 4px;
+    color: @color3;
+  }
+}
+
+#battery.good {
+  color: @foreground;
+  animation-name: blink;
+}
+
+#battery.warning {
+  color: @color3;
+}
+
+#battery label {
+  color: @color2;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @foreground;
+}
+
+#battery.critical {
+  color: @color1;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @background2;
+  color: @color1;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* ── Tray ──────────────────────────────────────────────────────── */
+#tray {
+  border-radius: 0px;
+  border: 1px solid;
+  border-color: @borderColor;
+  border-left: 0px;
+  border-right: 0px;
+  margin: 4px 0px;
+  opacity: 0.8;
+  margin-right: 0px;
+  padding: 0px 8px;
+  padding-right: 4px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ── MPRIS ─────────────────────────────────────────────────────── */
+
+@keyframes mprisbg {
+  4% {
+    background: linear-gradient(
+      -30deg,
+      @background,
+      mix(@color4, @background, 0.7),
+      @background
+    );
+  }
+
+  7% {
+    background: linear-gradient(
+      30deg,
+      mix(@color4, @background, 0.6),
+      mix(@color5, @background, 0.8),
+      mix(@color5, @background, 0.9)
+    );
+  }
+
+  10% {
+    background: linear-gradient(
+      60deg,
+      mix(@color4, @background, 0.7),
+      mix(@color5, @background, 0.6),
+      @background
+    );
+  }
+
+  13% {
+    background: linear-gradient(
+      90deg,
+      @background,
+      mix(@color5, @background, 0.8),
+      @background
+    );
+  }
+
+  15% {
+    background: linear-gradient(
+      120deg,
+      @background,
+      @background,
+      @background,
+      @background
+    );
+  }
+}
+#mpris {
+  background-color: @background;
+  color: @foreground;
+  padding: 0px 8px;
+  margin: 4px 8px;
+  border-radius: 8px;
+  /* animation-duration: 20s; */
+  /* animation-name: mprisbg; */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: alternate; */
+  border: 1px solid transparent;
+  opacity: 0.8;
+}
