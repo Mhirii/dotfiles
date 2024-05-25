@@ -1,0 +1,5 @@
+* {
+  border-radius: 4px;
+  elm-border-radius: 4px;
+  window-width:  640px;
+}
