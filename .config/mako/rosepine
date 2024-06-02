@@ -1,0 +1,26 @@
+border-size=1
+border-radius=8
+background-color=#19172490
+text-color=#c0caf5
+progress-color=over #31748f
+
+[grouped]
+format=<b>%s</b>\n%b
+
+[urgency=low]
+border-color=#c0caf530
+default-timeout=2000
+
+[urgency=normal]
+border-color=#c0caf530
+default-timeout=5000
+
+[urgency=high]
+border-color=#eb6f92
+text-color=#eb6f92
+default-timeout=60000
+
+[category=mpd]
+border-color=#e0def4
+default-timeout=2000
+group-by=category
