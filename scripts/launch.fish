@@ -57,13 +57,13 @@ switch $arg
         end
 
     case browser
-        if pgrep floorp >/dev/null
-            set browserClient (hyprctl clients -j | jq ".[] | select(.initialClass == \"floorp\") | .workspace.id")
+        if pgrep brave >/dev/null
+            set browserClient (hyprctl clients -j | jq ".[] | select(.initialClass == \"brave-browser\") | .workspace.id")
             if test -n "$browserClient"
                 hyprctl dispatch workspace $browserClient
             end
         else
-            floorp
+            brave
         end
 
 
