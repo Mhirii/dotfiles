@@ -47,7 +47,7 @@ set -x GOPATH $XDG_DATA_HOME/go
 set -x GOBIN $GOPATH/bin
 
 # ━━ Default Apps ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-set -x BROWSER vivaldi
+set -x BROWSER brave
 set -x FILEMANAGER thunar
 set -x EDITOR nvim
 set -x TERMINAL alacritty
