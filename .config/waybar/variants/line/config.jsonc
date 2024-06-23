@@ -1,0 +1,32 @@
+{
+	// General Settings
+	"layer": "top",
+	"margin-top": 0,
+	"margin-bottom": 0,
+	"margin-left": 0,
+	"margin-right": 0,
+	"name": "bar",
+	"height": 30,
+	"spacing": 0,
+	"reload_style_on_change": true,
+	"include": [
+		"~/.config/waybar/modules.jsonc"
+	],
+	"modules-left": [
+		"hyprland/workspaces",
+		"tray",
+		"hyprland/submap"
+	],
+	"modules-center": [
+		"mpris",
+		"custom/swaync"
+	],
+	"modules-right": [
+		"privacy",
+		"pulseaudio",
+		"backlight",
+		"group/bluetooths",
+		"group/hardware",
+		"clock",
+	],
+}

@@ -1,0 +1,278 @@
+@import "theme.css";
+@import "variants/default.css";
+
+/* ── General ───────────────────────────────────────────────────── */
+@define-color background_darker alpha(shade(@background, 0.9), 0.5);
+@define-color bg alpha(@background, 0.5);
+@define-color borderColor alpha(mix(@foreground, @color4, 0.9), 0.5);
+
+/* ── modules ────────────────────────────────────────────────────── */
+#workspaces,
+#submap,
+#mpris,
+#pulseaudio,
+#backlight,
+#tray,
+#clock,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#taskbar,
+#hardware {
+  background-color: @transparent;
+  border-radius: 4px;
+  padding: 0px 2px;
+  opacity: 1;
+}
+
+* {
+  color: @color15;
+  font-size: 11pt;
+}
+
+window#waybar {
+  /* border-radius: 8px; */
+  padding: 2px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background-color: alpha(@background, 0.8);
+}
+
+/* ── Workspaces ────────────────────────────────────────────────── */
+#workspaces {
+  border: 0px;
+  background: @bg;
+  margin: 0px 4px;
+  padding-left: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-style: normal;
+  color: @foreground;
+  margin-left: 0px;
+}
+
+#workspaces button.empty {
+  color: @color7;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.2;
+}
+
+#workspaces button {
+  /* border: 1px solid transparent; */
+  padding: 0px 4px;
+  padding-right: 0px;
+  margin: 0px 0px;
+  border-radius: 15px;
+  color: @foreground;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#workspaces button * {
+  color: alpha(@foreground, 0.5);
+}
+#workspaces button.empty * {
+  color: alpha(@color15, 0.8);
+}
+
+#workspaces button.active {
+  border: 0px solid;
+  border-color: @borderColor;
+  background-color: alpha(mix(@background, @foreground, 0.5), 0.1);
+  margin: 2px 0px;
+  border-radius: 15px;
+  min-width: 30px;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#workspaces button:hover {
+  color: @foreground;
+  background: @background1;
+  border-radius: 15px;
+  opacity: 0.7;
+}
+
+#workspaces button.active * {
+  color: @color4;
+}
+
+/* ── Submap ────────────────────────────────────────────────────── */
+#submap {
+  padding: 0px 8px;
+  background: transparent;
+}
+
+#submap.launch {
+  color: @color2;
+}
+
+#submap.WindowMode {
+  color: @color1;
+}
+
+/* ── Clock ─────────────────────────────────────────────────────── */
+#clock {
+  color: @foreground;
+  background: @bg;
+  border-radius: 8px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+/* ── Right Side ────────────────────────────────────────────────── */
+#hardware,
+#pulseaudio,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#backlight {
+  color: @foreground;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+/* ──  Hardware Group ──────────────────────────────────────────── */
+#hardware {
+  border-radius: 0px 8px 8px 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#battery,
+#disk,
+#memory,
+#cpu {
+  color: @foreground;
+  margin: 2px 4px;
+}
+
+/* ── backlight ─────────────────────────────────────────────────── */
+#backlight {
+  border-radius: 0px;
+}
+
+/* ── pulseaudio ────────────────────────────────────────────────── */
+#pulseaudio {
+  padding-left: 8px;
+}
+
+#pulseaudio.muted {
+  color: @color1;
+}
+
+/* ── Network ───────────────────────────────────────────────────── */
+#network {
+  padding: 0px;
+
+  padding-right: 5px;
+}
+#networks {
+  border-radius: 0px;
+
+  padding-left: 6px;
+}
+#network.info {
+  padding: 0px 4px;
+}
+/* ── Bluetooth ─────────────────────────────────────────────────── */
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
+  border-radius: 0px;
+}
+
+/* ── * Battery ─────────────────────────────────────────────────── */
+@keyframes blink {
+  to {
+    padding-left: 4px;
+    padding-right: 4px;
+    color: @color3;
+  }
+}
+
+#battery.good {
+  color: @foreground;
+  animation-name: blink;
+}
+
+#battery.warning {
+  color: @color3;
+}
+
+#battery label {
+  color: @color2;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @foreground;
+}
+
+#battery.critical {
+  color: @color1;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @background2;
+  color: @color1;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* ── Tray ──────────────────────────────────────────────────────── */
+#tray {
+  border-radius: 8px;
+  margin-left: 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ── Mpris ─────────────────────────────────────────────────────── */
+#mpris {
+  color: @foreground;
+  padding: 0px 8px;
+  margin-right: 8px;
+  border-radius: 8px;
+}
+#mpris.spotify {
+  color: @color2;
+}
+#mpris.chromium {
+  color: @foreground;
+}
+#mpris.paused {
+  color: @color7;
+}
+
+#workspaces,
+#submap,
+#mpris,
+#pulseaudio,
+#backlight,
+#tray,
+#clock,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#taskbar,
+#hardware {
+  margin-top: 2px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
