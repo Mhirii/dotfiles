@@ -62,7 +62,7 @@ threshold = 80
 "projects" = "󱒔 "
 "scripts" = " "
 "uni" = " "
-"code" = "󱃖 "
+# "code" = "󱃖 "
 
 [git_branch]
 style = "bg:none fg:black"
