@@ -5,11 +5,16 @@ selected=$(echo -e "$options" | rofi -dmenu -i -p "Select Option")
 
 case $selected in
 " Theme ")
-	$HOME/scripts/pick_theme.sh
+	# check if $HOME/.config/hypr/scripts/set_theme.sh exists
+	if [ -f "$HOME/.config/hypr/scripts/set_theme.sh" ]; then
+		"$HOME/.config/hypr/scripts/set_theme.sh" rofi
+	else
+		"$HOME/scripts/pick_theme.sh"
+	fi
 	;;
 " Waybar ")
-	cd $HOME/.config/waybar
-	$HOME/.config/waybar/pick_variant.sh
+	cd "$HOME/.config/waybar" || exit
+	"$HOME/.config/waybar/pick_variant.sh"
 	;;
 " Ags ")
 	notify-send "WIP"
