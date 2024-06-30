@@ -140,6 +140,11 @@ thefuck --alias | source
 
 if status --is-interactive
     source ("/usr/bin/starship" init fish --print-full-init | psub)
+    function starship_transient_prompt_func
+      starship module character
+    end
+    enable_transience
+
     if test -x /usr/bin/pfetch
         pfetch
     else
