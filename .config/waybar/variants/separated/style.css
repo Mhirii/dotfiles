@@ -3,7 +3,7 @@
 
 /* ── General ───────────────────────────────────────────────────── */
 @define-color background_darker alpha(shade(@background, 0.9), 0.5);
-@define-color bg alpha(@background, 0.5);
+@define-color bg alpha(@background, 0.9);
 @define-color borderColor alpha(mix(@foreground, @color4, 0.3), 0.4);
 
 /* ── Keyframes ─────────────────────────────────────────────────── */

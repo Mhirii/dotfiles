@@ -5,27 +5,27 @@ selected=$(echo -e "$options" | rofi -dmenu -i -p "Select Option")
 
 case $selected in
 " Theme ")
-	# check if $HOME/.config/hypr/scripts/set_theme.sh exists
-	if [ -f "$HOME/.config/hypr/scripts/set_theme.sh" ]; then
-		"$HOME/.config/hypr/scripts/set_theme.sh" rofi
-	else
-		"$HOME/scripts/pick_theme.sh"
-	fi
-	;;
+  # check if $HOME/.config/hypr/scripts/set_theme.sh exists
+  if [ -f "$HOME/.config/hypr/scripts/set_theme.sh" ]; then
+    "$HOME/.config/hypr/scripts/set_theme.sh" rofi
+  else
+    "$HOME/scripts/pick_theme.sh"
+  fi
+  ;;
 " Waybar ")
-	cd "$HOME/.config/waybar" || exit
-	"$HOME/.config/waybar/pick_variant.sh"
-	;;
+  cd "$HOME/.config/waybar" || exit
+  "$HOME/.config/waybar/pick_variant.sh"
+  ;;
 " Ags ")
-	notify-send "WIP"
-	;;
+  notify-send "WIP"
+  ;;
 " rofi ")
-	rofi -show drun
-	;;
+  rofi -show drun
+  ;;
 " Tmux ")
-	"$HOME/scripts/rofi_tmux.sh"
-	;;
+  "$HOME/scripts/rofi_tmux.sh"
+  ;;
 " icons ")
-	bat "$HOME/Documents/nerdfont.txt" | rofi -dmenu -i | awk '{print $1}' | wl-copy
-	;;
+  bat "$HOME/Documents/nerdfont.txt" | rofi -dmenu -i | awk '{print $1}' | wl-copy
+  ;;
 esac
