@@ -155,3 +155,13 @@ blue = "#92A9FF"
 purple = "#a87ffb"
 cyan = "#85CDF1"
 white = "#d9dfe7"
+
+[palettes.midnight]
+black = "#0F1A2D"
+red = "#ef6b91"
+green = "#90dc89"
+yellow = "#f18b74"
+blue = "#59a8f8"
+purple = "#a879e2"
+cyan = "#2ec1dc"
+white = "#c0caf5"
