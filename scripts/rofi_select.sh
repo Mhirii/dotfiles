@@ -9,7 +9,7 @@ case $selected in
   if [ -f "$HOME/.config/hypr/scripts/set_theme.sh" ]; then
     "$HOME/.config/hypr/scripts/set_theme.sh" rofi
   else
-    "$HOME/scripts/pick_theme.sh"
+    echo "set_theme.sh not found in $HOME/.config/hypr/scripts/"
   fi
   ;;
 " Waybar ")
