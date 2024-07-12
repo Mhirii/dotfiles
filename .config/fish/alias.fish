@@ -40,19 +40,15 @@ if test -x /usr/bin/tmux
     alias t tmux
     alias tks 'tmux kill-session'
     alias tls 'tmux list-sessions'
-    alias tcs 'tmux list-clients'
+    alias tlc 'tmux list-clients'
     alias tns 'tmux new -s'
 end
 
 alias getip 'curl https://ipinfo.io/ip'
 
 alias rat bat
-alias cm chezmoi
-alias cme "chezmoi edit"
-alias cmtest "chezmoi git pull -- --autostash --rebase && chezmoi diff"
 alias c '/usr/bin/code --password-store="gnome"'
 alias ppc powerprofilesctl
-alias gclone /home/mhiri/ghclone
 alias cq /home/mhiri/code/scripts/cq.sh
 alias outdated 'paru -Qu| wc -l'
 
