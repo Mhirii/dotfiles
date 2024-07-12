@@ -47,6 +47,14 @@ function run_electron
     end
 end
 
+function getAccentColor
+  set themedir "$HOME/.config/hypr/themes"
+  set themefile "$themedir/$theme.conf"
+  set accentname (less "$themefile" | rg accent | awk '{print $3}' | sed 's/\$//')
+  set accentcolor (less "$themefile" | rg "$accentname = " | awk '{print $3}')
+  echo $accentcolor
+end
+
 switch $arg
     # Hyprland Only
     case firefox
@@ -167,16 +175,8 @@ switch $arg
                     ags -r "(await import('file://$HOME/.config/ags/js/settings/theme.js')).setTheme('idx')"
             end
         end
-        switch $theme
-            case tokyonight
-                hyprctl keyword general:col.active_border "rgba(7aa2f7ff)"
-            case rosepine
-                hyprctl keyword general:col.active_border "rgba(31748fff)"
-            case nero
-                hyprctl keyword general:col.active_border "rgba(0da8f2ff)"
-            case idx
-                hyprctl keyword general:col.active_border "rgba(a87ffbff)"
-        end
+            set accentcolor=(getAccentColor)
+                hyprctl keyword general:col.active_border "$accentcolor"
     case hypr_windowmode
         hyprctl keyword general:col.active_border "rgba(FA7A55ff) rgba(00000000) rgba(FA7A55ff) rgba(00000000)"
 end
