@@ -175,7 +175,7 @@ switch $arg
                     ags -r "(await import('file://$HOME/.config/ags/js/settings/theme.js')).setTheme('idx')"
             end
         end
-            set accentcolor=(getAccentColor)
+            set accentcolor (getAccentColor)
                 hyprctl keyword general:col.active_border "$accentcolor"
     case hypr_windowmode
         hyprctl keyword general:col.active_border "rgba(FA7A55ff) rgba(00000000) rgba(FA7A55ff) rgba(00000000)"
