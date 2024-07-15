@@ -66,7 +66,7 @@ switch $arg
 
     case browser
         if pgrep brave >/dev/null
-            set browserClient (hyprctl clients -j | jq ".[] | select(.initialClass == \"brave-browser\") | .workspace.id")
+            set browserClient (hyprctl clients -j | jq ".[] | select(.initialClass == \"Brave-browser\") | .workspace.id")
             if test -n "$browserClient"
                 hyprctl dispatch workspace $browserClient
             end
