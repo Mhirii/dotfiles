@@ -129,6 +129,7 @@ end
 
 source ~/.config/fish/alias.fish
 source ~/.config/fish/binds.fish
+source ~/.config/fish/abbr.fish
 
 #          ╭──────────────────────────────────────────────────────────╮
 #          │                           init                           │
