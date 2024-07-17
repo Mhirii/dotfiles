@@ -21,17 +21,17 @@
     background: linear-gradient(
       60deg,
       @background,
-      mix(@color4, @bg, 0.9),
-      mix(@color5, @bg, 0.3)
+      mix(@color6, @bg, 0.9),
+      mix(@color4, @bg, 0.5)
     );
   }
 
   15% {
-    background: linear-gradient(180deg, @bg, mix(@color5, @bg, 0.7));
+    background: linear-gradient(180deg, @background1, mix(@color4, @bg, 0.8));
   }
 
   30% {
-    background: linear-gradient(360deg, @bg, @bg);
+    background: linear-gradient(360deg, @background1, @background1);
     border-color: @borderColor;
   }
 }
