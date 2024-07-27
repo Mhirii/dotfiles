@@ -1,10 +1,10 @@
-@define-color foreground #c0caf5;
+@define-color foreground #cdd6f4;
 @define-color background #0F1A2D;
 
-@define-color background1 #263e5f;
-@define-color background2 #1a2c47;
+@define-color background1 #1a2c47;
+@define-color background2 #263e5f;
 
-@define-color color0 #15161e;
+@define-color color0 #0F1A2D;
 @define-color color1 #ef6b91;
 @define-color color2 #90dc89;
 @define-color color3 #f18b74;
@@ -21,4 +21,4 @@
 @define-color color14 #2ec1dc;
 @define-color color15 #c0caf5;
 
-@define-color accent @color4;
+@define-color accent @color6;
