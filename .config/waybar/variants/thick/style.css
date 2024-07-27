@@ -1,0 +1,420 @@
+@import "theme.css";
+@import "variants/default.css";
+
+/* ── General ───────────────────────────────────────────────────── */
+@define-color bg alpha(@background, 0.9);
+@define-color bg1 mix(@bg, @accent, 0.1);
+
+@define-color translucent alpha(@background, 0.5);
+@define-color layer alpha(@background1, 0.3);
+
+
+@define-color bg1-lighter shade(mix(@bg1, @foreground, 0.2), 1.2);
+
+@define-color bg-selected alpha(mix(@layer, @foreground, 0.3), 0.5);
+@define-color borderColor alpha(@bg1-lighter, 0.8);
+
+
+
+/* ── Keyframes ─────────────────────────────────────────────────── */
+@keyframes changebg {
+  0% {
+    background: linear-gradient(
+      -60deg,
+      @background,
+      @background,
+      mix(@color4, @bg, 0.1)
+    );
+    border-radius: 20px;
+  }
+  5% {
+    background: linear-gradient(
+      60deg,
+      @background,
+      mix(@color6, @bg, 0.9),
+      mix(@color4, @bg, 0.5)
+    );
+    border-radius: 15px;
+  }
+
+  15% {
+    background: linear-gradient(180deg, @background1, mix(@color4, @bg, 0.8));
+    border-radius: 9px;
+  }
+
+  30% {
+    background: linear-gradient(360deg, @bg-selected );
+    border-color: @borderColor;
+    border-radius: 8px;
+  }
+}
+
+/* ── modules ────────────────────────────────────────────────────── */
+#workspaces,
+#custom-appmenuicon,
+#submap,
+#mpris,
+#pulseaudio,
+#cpu,
+#backlight,
+#tray,
+#clock,
+#bluetooths,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#taskbar,
+#hardware {
+  /* background-color: @bg; */
+  border: 0px solid @borderColor;
+  border-radius: 8px;
+  margin: 2px;
+  padding: 2px;
+  opacity: 0.9;
+  padding-bottom: 0px;
+}
+
+* {
+  color: @foreground;
+  font-size: 12pt;
+}
+
+window#waybar {
+  background-color: @translucent;
+  border-top: none;
+  border-radius: 0px;
+  /* border-bottom-right-radius: 8px; */
+  /* border-bottom-left-radius: 8px; */
+  padding: 2px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* ── Workspaces ────────────────────────────────────────────────── */
+#workspaces {
+  background: @layer;
+  margin: 2px 4px;
+  padding: 0px 1px;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: @borderColor;
+  /* border-color: @bg1; */
+  font-weight: bold;
+  font-style: normal;
+  margin-left: 0px;
+}
+  
+
+#workspaces button.empty {
+  color: @color7;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.2;
+}
+
+#workspaces button.empty * {
+  color: @color15;
+}
+
+#workspaces button {
+  padding: 0px 4px;
+  padding-right: 0px;
+  margin: 2px 1px;
+  border-radius: 8px;
+  border: 0px;
+  color: @foreground;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+}
+
+#workspaces button * {
+  color: @color15;
+}
+
+#workspaces button.active {
+  animation-duration: 8s;
+  animation-name: changebg;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+  background-color: @bg-selected;
+  border: 1px solid;
+  border-color: @borderColor;
+  border-radius: 8px;
+  min-width: 30px;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#workspaces button * {
+  color: mix(@foreground, @bg, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+  color: @foreground;
+}
+
+#workspaces button:hover {
+  color: @foreground;
+  background: @background1;
+  border-radius: 8px;
+  opacity: 0.7;
+}
+
+#custom-appmenuicon{
+  background-color: @accent;
+  color: @bg;
+  margin: 2px 4px;
+  padding-left: 8px;
+  padding-right: 14px;
+  border: 1px solid;
+}
+
+/* ── Submap ────────────────────────────────────────────────────── */
+#submap {
+  padding: 0px 8px;
+  font-weight: 600;
+  font-size: 14px;
+  background: transparent;
+}
+
+#submap.launch {
+  color: @color2;
+  border-color: @color2;
+}
+
+#submap.WindowMode {
+  color: @color1;
+  border-color: @color1;
+}
+
+/* ── Taskbar ───────────────────────────────────────────────────── */
+#taskbar {
+  background: transparent;
+  border: 0px;
+  padding: 0px 4px;
+  margin: 0px 4px;
+  border-radius: 8px;
+}
+#taskbar button {
+  padding: 0px;
+  margin: 2px 1px;
+  padding-left: 4px;
+  border-radius: 8px;
+  opacity: 0.7;
+}
+#taskbar button.active {
+  background: linear-gradient(
+    45deg,
+    alpha(@color5, 0.16),
+    alpha(@color5, 0.12),
+    alpha(@color4, 0.08),
+    alpha(@color4, 0.04)
+  );
+  opacity: 1;
+}
+#taskbar.empty {
+  padding: 0px;
+  padding-right: 8px;
+}
+
+/* ── Clock ─────────────────────────────────────────────────────── */
+#clock {
+  font-weight: 600;
+  color: @foreground;
+  background-color: @layer;
+  border: 1px solid;
+  border-color: @borderColor;
+  border-radius: 8px;
+  padding-right: 12px;
+  padding-left: 12px;
+  margin: 2px 4px;
+  margin-right: 4px;
+}
+
+/* ── Right Side ────────────────────────────────────────────────── */
+#pulseaudio,
+#bluetooths,
+#cpu,
+#battery,
+#backlight {
+  background-color: @layer;
+  color: @foreground;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+
+/* ── backlight ─────────────────────────────────────────────────── */
+
+/* ── pulseaudio ────────────────────────────────────────────────── */
+#pulseaudio.muted {
+  color: @color1;
+}
+
+/* ── Network ───────────────────────────────────────────────────── */
+#network {
+  padding: 0px;
+  margin: 0px;
+  padding-right: 5px;
+}
+#networks {
+  border-radius: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 6px;
+  margin: 0px;
+}
+#network.info {
+  padding: 0px 4px;
+}
+/* ── Bluetooth ─────────────────────────────────────────────────── */
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
+  margin: 0px;
+}
+#bluetooth *{
+  color: @foreground;
+}
+
+#bluetooth.info {
+  padding: 0px 4px;
+}
+#bluetooth.info * {
+  color: @foreground;
+}
+
+/* ── * Battery ─────────────────────────────────────────────────── */
+@keyframes blink {
+  to {
+    padding-left: 4px;
+    padding-right: 4px;
+    color: @color3;
+  }
+}
+
+#battery.good {
+  color: @foreground;
+  animation-name: blink;
+}
+
+#battery.warning {
+  color: @color3;
+}
+
+#battery label {
+  color: @color2;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @foreground;
+}
+
+#battery.critical {
+  color: @color1;
+}
+
+#battery.critical:not(.charging) {
+  background-color: @background2;
+  color: @color1;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* ── Right Side Format ─────────────────────────────────────────── */
+#pulseaudio,
+#backlight,
+#cpu,
+#bluetooths,
+#battery{
+  border: 1px solid;
+  border-color: @borderColor;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius:0px;
+  padding: 0px 4px;
+}
+#battery{
+  padding-right: 12px;
+  border-right: 1px solid;
+  border-color: @borderColor;
+  border-radius: 0px 8px 8px 0px;
+}
+#pulseaudio{
+  padding-left: 12px;
+  border-left: 1px solid;
+  border-color: @borderColor;
+  border-radius: 8px 0px 0px 8px;
+}
+
+/* ── Tray ──────────────────────────────────────────────────────── */
+#tray {
+  border-radius: 8px;
+  background-color: @layer;
+  border: 1px solid;
+  border-color: @borderColor;
+  margin: 2px 0px;
+  padding: 0px 12px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ── Mpris ─────────────────────────────────────────────────────── */
+#mpris {
+  /* background-color: @bg; */
+  color: @foreground;
+  padding: 0px 8px;
+  margin: 2px 8px;
+  border-radius: 8px;
+  border: 0px solid @borderColor;
+}
+#mpris.spotify {
+  color: @color2;
+}
+#mpris.chromium {
+  color: @foreground;
+}
+#mpris.paused {
+  color: @color7;
+}
+
+#workspaces,
+#submap,
+#mpris,
+#pulseaudio,
+#backlight,
+#tray,
+#clock,
+#bluetooths,
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected,
+#networks,
+#taskbar,
+#cpu, 
+#battery,
+#custom-appmenuicon,
+#hardware {
+  margin-bottom: 4px;
+  margin-top: 4px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
