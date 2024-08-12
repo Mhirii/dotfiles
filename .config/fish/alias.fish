@@ -1,7 +1,7 @@
 
 
 # ls > eza
-if test -x /usr/bin/eza
+if type -q eza
     alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
     alias la 'eza -a --color=always --group-directories-first --icons' # all files and dirs
     alias ll 'eza -l --color=always --group-directories-first --icons' # long format
@@ -12,31 +12,26 @@ else
 end
 
 # cat > bat
-if test -x /usr/bin/bat
+if type -q bat
     alias cat 'bat --style header --style snip --style changes --style header'
 else
     echo "Bat does not exist on your system!"
 end
 
-# yay > paru
-if not test -x /usr/bin/yay; and test -x /usr/bin/paru
-    alias yay paru
-end
-
-if test -x /usr/bin/lazygit
+if type -q lazygit
     alias lg lazygit
 end
-if test -x /usr/bin/nvim
+if type -q nvim
     alias v nvim
 end
-if test -x $HOME/.local/bin/lvim
+if type -q lvim
     alias lv lvim
 end
-if test -x /usr/bin/wezterm
+if type -q wezterm
     alias wz wezterm
 end
 
-if test -x /usr/bin/tmux
+if type -q tmux
     alias t tmux
     alias tks 'tmux kill-session'
     alias tls 'tmux list-sessions'

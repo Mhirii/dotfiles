@@ -8,7 +8,7 @@
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -x SHELL /usr/bin/fish
+set -x SHELL "/usr/bin/env fish"
 
 set -x QT_QPA_PLATFORMTHEME qt5ct
 
@@ -137,19 +137,18 @@ source ~/.config/fish/abbr.fish
 
 
 zoxide init fish | source
-thefuck --alias | source
 
 if status --is-interactive
-    source ("/usr/bin/starship" init fish --print-full-init | psub)
+    source ("starship" init fish --print-full-init | psub)
     function starship_transient_prompt_func
       starship module character
     end
     enable_transience
 
-    if test -x /usr/bin/pfetch
+    if type -q pfetch
         pfetch
     else
-        if test -x /usr/bin/neofetch
+        if type -q neofetch
             neofetch --ascii_colors 6 6 2 2 2 2
         end
     end

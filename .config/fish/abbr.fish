@@ -1,4 +1,4 @@
-if test -x /usr/bin/tmux
+if type -q tmux
     abbr t tmux
     abbr tks 'tmux kill-session'
     abbr tls 'tmux list-sessions'
@@ -6,15 +6,15 @@ if test -x /usr/bin/tmux
     abbr tns 'tmux new -s'
 end
 
-if test -x /usr/bin/lazydocker
+if type -q lazydocker
     abbr lzd lazydocker
 end
 
-if test -x /usr/bin/lazygit
+if type -q lazygit
     abbr lzg lazygit
 end
 
-if test -x /usr/bin/cargo
+if type -q cargo
     abbr cr cargo r
     abbr cb cargo b
     abbr ct cargo t

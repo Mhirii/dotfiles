@@ -1,2 +1,2 @@
-set -x theme midnight
+set -x theme tokyonight
 fish_config theme choose $theme
