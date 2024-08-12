@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function run() {
-	local cmd=$@
-	if ! pgrep -x $cmd; then
-		$cmd &
-	fi
+  local cmd=$@
+  if ! pgrep -x $cmd; then
+    $cmd &
+  fi
 }
 pkill picom
 sleep 0.1

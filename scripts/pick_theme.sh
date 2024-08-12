@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 themes=$(echo -e " Tokyonight \n Rosepine \n Nero \n IDX ")
 selected_theme=$(echo -e "$themes" | rofi -dmenu -i -config ~/.config/rofi/config.rasi)

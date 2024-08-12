@@ -1,4 +1,4 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 
 if test -z "$argv[1]"
     echo "Please provide an argument"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 options=" Theme \n Waybar \n Tmux \n Ags \n rofi \n icons "
 selected=$(echo -e "$options" | rofi -dmenu -i -p "Select Option")

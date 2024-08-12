@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 
 function toggle_mute
     if test (pamixer --get-mute) = true

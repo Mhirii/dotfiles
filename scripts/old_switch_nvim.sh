@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ── Options ─────────────────────────────────────────────────────
 nvchad=1
 lazyvim=1
@@ -12,164 +12,164 @@ verbose=0
 
 # ── Utils ───────────────────────────────────────────────────────{{{
 verboseEcho() {
-	if [[ $verbose -eq 1 ]]; then
-		echo_colored "$1" "$2"
-		echo
-	fi
+  if [[ $verbose -eq 1 ]]; then
+    echo_colored "$1" "$2"
+    echo
+  fi
 }
 
 echo_colored() {
-	case $2 in
-	"red")
-		printf "\e[31m%s\e[0m" "$1"
-		;;
-	"green")
-		printf "\e[32m%s\e[0m" "$1"
-		;;
-	"yellow")
-		printf "\e[33m%s\e[0m" "$1"
-		;;
-	"blue")
-		printf "\e[34m%s\e[0m" "$1"
-		;;
-	"purple")
-		printf "\e[35m%s\e[0m" "$1"
-		;;
-	"cyan")
-		printf "\e[36m%s\e[0m" "$1"
-		;;
-	"white")
-		printf "\e[37m%s\e[0m" "$1"
-		;;
-	*)
-		printf "\e[37m%s\e[0m" "$1"
-		;;
-	esac
+  case $2 in
+  "red")
+    printf "\e[31m%s\e[0m" "$1"
+    ;;
+  "green")
+    printf "\e[32m%s\e[0m" "$1"
+    ;;
+  "yellow")
+    printf "\e[33m%s\e[0m" "$1"
+    ;;
+  "blue")
+    printf "\e[34m%s\e[0m" "$1"
+    ;;
+  "purple")
+    printf "\e[35m%s\e[0m" "$1"
+    ;;
+  "cyan")
+    printf "\e[36m%s\e[0m" "$1"
+    ;;
+  "white")
+    printf "\e[37m%s\e[0m" "$1"
+    ;;
+  *)
+    printf "\e[37m%s\e[0m" "$1"
+    ;;
+  esac
 }
 
 echo_warning() {
-	echo "$(echo_colored "[Warning]:" "yellow") $(echo_colored "$1" "white")"
+  echo "$(echo_colored "[Warning]:" "yellow") $(echo_colored "$1" "white")"
 }
 
 echo_error() {
-	echo_colored "╭── Error: ──────────────────────────────────────────────────────────╮" "red"
-	echo
-	echo -e "\t$1"
-	echo
-	echo_colored "╰────────────────────────────────────────────────────────────────────╯" "red"
+  echo_colored "╭── Error: ──────────────────────────────────────────────────────────╮" "red"
+  echo
+  echo -e "\t$1"
+  echo
+  echo_colored "╰────────────────────────────────────────────────────────────────────╯" "red"
 }
 
 str_length() {
-	echo ${#1}
+  echo ${#1}
 }
 
 fill_string() {
-	character=$1
-	number=$2
-	str=""
-	for ((i = 0; i < number; i++)); do
-		str="$str$character"
-	done
-	echo "$str"
+  character=$1
+  number=$2
+  str=""
+  for ((i = 0; i < number; i++)); do
+    str="$str$character"
+  done
+  echo "$str"
 }
 
 # ────────────────────────────────────────────────────────────────}}}
 
 # ── Checks ──────────────────────────────────────────────────────{{{
 check_fzf() {
-	has_fzf=0
-	if command -v fzf &>/dev/null; then
-		has_fzf=1
-	fi
+  has_fzf=0
+  if command -v fzf &>/dev/null; then
+    has_fzf=1
+  fi
 }
 # ────────────────────────────────────────────────────────────────}}}
 
 find_dir() {
-	dir_name=$1
-	dir_path="$HOME/.config/$dir_name"
-	if [ ! -d "$dir_path" ]; then
-		return
-	else
-		echo "$dir_path"
-	fi
+  dir_name=$1
+  dir_path="$HOME/.config/$dir_name"
+  if [ ! -d "$dir_path" ]; then
+    return
+  else
+    echo "$dir_path"
+  fi
 }
 
 select_config() {
-	if [[ $has_fzf -eq 1 ]]; then
-		selected_config=$(echo "${nvim_configs[@]}" | tr ' ' '\n' | fzf)
-		if [ -z "$selected_config" ]; then
-			echo_error "No config selected"
-			exit 1
-		fi
-	else
-		echo_error "fzf is not installed"
-	fi
+  if [[ $has_fzf -eq 1 ]]; then
+    selected_config=$(echo "${nvim_configs[@]}" | tr ' ' '\n' | fzf)
+    if [ -z "$selected_config" ]; then
+      echo_error "No config selected"
+      exit 1
+    fi
+  else
+    echo_error "fzf is not installed"
+  fi
 }
 
 find_current_config() {
 
-	current_config=""
-	for config in "$@"; do
-		dir_path=$(find_dir $config)
-		if [ -z "$dir_path" ]; then
-			verboseEcho "$config does not exist" "yellow"
-			if [ -z "$current_config" ]; then
-				current_config=$config
-			else
-				echo_error "More than one config is missing"
-				exit 1
-			fi
-		fi
-	done
+  current_config=""
+  for config in "$@"; do
+    dir_path=$(find_dir $config)
+    if [ -z "$dir_path" ]; then
+      verboseEcho "$config does not exist" "yellow"
+      if [ -z "$current_config" ]; then
+        current_config=$config
+      else
+        echo_error "More than one config is missing"
+        exit 1
+      fi
+    fi
+  done
 }
 
 validate_config() {
-	config=$1
-	if [ ! -d "$HOME/.config/$config" ]; then
-		echo_error "$HOME/.config/$config does not exist"
-		exit 1
-	fi
-	if [ ! -d "$HOME/.local/share/$config" ]; then
-		echo_error "$HOME/.local/share/$config does not exist"
-		exit 1
-	fi
-	if [ ! -d "$HOME/.local/state/$config" ]; then
-		echo_error "$HOME/.local/state/$config does not exist"
-		exit 1
-	fi
+  config=$1
+  if [ ! -d "$HOME/.config/$config" ]; then
+    echo_error "$HOME/.config/$config does not exist"
+    exit 1
+  fi
+  if [ ! -d "$HOME/.local/share/$config" ]; then
+    echo_error "$HOME/.local/share/$config does not exist"
+    exit 1
+  fi
+  if [ ! -d "$HOME/.local/state/$config" ]; then
+    echo_error "$HOME/.local/state/$config does not exist"
+    exit 1
+  fi
 }
 
 switch_config() {
-	existing_config=$1
-	new_config=$2
-	validate_config "nvim"
-	validate_config "$new_config"
+  existing_config=$1
+  new_config=$2
+  validate_config "nvim"
+  validate_config "$new_config"
 
-	verboseEcho "Switching from $existing_config to $new_config" "cyan"
+  verboseEcho "Switching from $existing_config to $new_config" "cyan"
 
-	verboseEcho "Moving nvim to $HOME/.config/$existing_config" "green"
-	mv "$HOME/.config/nvim" "$HOME/.config/$existing_config"
+  verboseEcho "Moving nvim to $HOME/.config/$existing_config" "green"
+  mv "$HOME/.config/nvim" "$HOME/.config/$existing_config"
 
-	verboseEcho "Moving nvim to $HOME/.local/share/$existing_config" "green"
-	mv "$HOME/.local/share/nvim" "$HOME/.local/share/$existing_config"
+  verboseEcho "Moving nvim to $HOME/.local/share/$existing_config" "green"
+  mv "$HOME/.local/share/nvim" "$HOME/.local/share/$existing_config"
 
-	verboseEcho "Moving nvim to $HOME/.local/state/$existing_config" "green"
-	mv "$HOME/.local/state/nvim" "$HOME/.local/state/$existing_config"
+  verboseEcho "Moving nvim to $HOME/.local/state/$existing_config" "green"
+  mv "$HOME/.local/state/nvim" "$HOME/.local/state/$existing_config"
 
-	verboseEcho "Moving nvim to $HOME/.cache/$existing_config" "green"
-	mv "$HOME/.cache/nvim" "$HOME/.cache/$existing_config"
+  verboseEcho "Moving nvim to $HOME/.cache/$existing_config" "green"
+  mv "$HOME/.cache/nvim" "$HOME/.cache/$existing_config"
 
-	verboseEcho "Moving $new_config to $HOME/.config/nvim" "green"
-	mv "$HOME/.config/$new_config" "$HOME/.config/nvim"
+  verboseEcho "Moving $new_config to $HOME/.config/nvim" "green"
+  mv "$HOME/.config/$new_config" "$HOME/.config/nvim"
 
-	verboseEcho "Moving $new_config to $HOME/.local/share/nvim" "green"
-	mv "$HOME/.local/share/$new_config" "$HOME/.local/share/nvim"
+  verboseEcho "Moving $new_config to $HOME/.local/share/nvim" "green"
+  mv "$HOME/.local/share/$new_config" "$HOME/.local/share/nvim"
 
-	verboseEcho "Moving $new_config to $HOME/.local/state/nvim" "green"
-	mv "$HOME/.local/state/$new_config" "$HOME/.local/state/nvim"
+  verboseEcho "Moving $new_config to $HOME/.local/state/nvim" "green"
+  mv "$HOME/.local/state/$new_config" "$HOME/.local/state/nvim"
 
-	verboseEcho "Moving $new_config to $HOME/.cache/nvim" "green"
-	mv "$HOME/.cache/$new_config" "$HOME/.cache/nvim"
+  verboseEcho "Moving $new_config to $HOME/.cache/nvim" "green"
+  mv "$HOME/.cache/$new_config" "$HOME/.cache/nvim"
 }
 
 # ╭──────────────────────────────────────────────────────────╮
@@ -179,9 +179,9 @@ switch_config() {
 nvim_configs=()
 
 for config in "${!config_vars[@]}"; do
-	if [ "${config_vars[$config]}" -eq 1 ]; then
-		nvim_configs+=("$config")
-	fi
+  if [ "${config_vars[$config]}" -eq 1 ]; then
+    nvim_configs+=("$config")
+  fi
 done
 
 check_fzf

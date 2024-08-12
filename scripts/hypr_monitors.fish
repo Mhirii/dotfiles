@@ -1,3 +1,4 @@
+#!/usr/bin/env fish
 set m ( hyprctl monitors -j )
 if test ( echo $m| jq ".[].name"|wc -l) = 2
     if test (expr (echo $m | jq ".[1].x") == -1920) = 0

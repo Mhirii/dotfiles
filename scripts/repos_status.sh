@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 repos=$(cd && fd config --hidden --exclude ".local" --exclude ".cache" --exclude ".tmux" | rg .git/config)
 

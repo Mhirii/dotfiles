@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 tmux new-session -d -s main
 tmux send-keys 'btop' 'C-m'

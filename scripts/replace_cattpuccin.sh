@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # this will most likely be ../../some/path/to/file
 file=$1

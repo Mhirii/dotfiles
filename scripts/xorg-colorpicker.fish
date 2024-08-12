@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/env fish
 
 set color (gpick -p -s -o)
 copyq add $color

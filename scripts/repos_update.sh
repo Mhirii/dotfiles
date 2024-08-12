@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 command="git fetch --all"
 if [ -n "$1" ] && [ "$1" = "pull" ]; then
