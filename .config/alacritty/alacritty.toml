@@ -67,8 +67,6 @@ hide_when_typing = true
 history = 10000
 multiplier = 3
 
-[shell]
-program = "/usr/bin/fish"
 
 [window]
 decorations = "full"
